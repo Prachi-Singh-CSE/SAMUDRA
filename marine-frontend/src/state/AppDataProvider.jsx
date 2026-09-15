@@ -19,7 +19,7 @@ import {
   acknowledgeSOSEvent,
   evaluateIMBLSafety,
   IMBL_DWELL_THRESHOLD_SECONDS,
-  askChat,
+  sendAgenticChat,
   answerWelfareQuestion,
 } from "../services";
 
@@ -778,26 +778,35 @@ export function AppDataProvider({
         details,
       });
 
-  const askQuestion =
-    (question) =>
-      dispatch({
-        type: "append-chat",
+  // Sends the question to agentic-core's real /chat pipeline (planner ->
+  // orchestrator -> agents -> explanation agent). Falls back to the canned
+  // demo template internally if the backend is unreachable, so this always
+  // resolves with a message to append rather than throwing.
+  const askQuestion = async (question) => {
+    const location = Array.isArray(state.location?.position)
+      ? { lat: state.location.position[0], lon: state.location.position[1] }
+      : undefined;
 
-        message: askChat(question, {
-          risk: state.risk,
+    const message = await sendAgenticChat({
+      question,
+      language,
+      location,
+      demoContext: {
+        risk: state.risk,
+        marineData: state.marine,
+        dataSourceHealth: state.dataSources,
+        previousMessages: state.chat,
+        language,
+      },
+    });
 
-          marineData:
-            state.marine,
+    dispatch({
+      type: "append-chat",
+      message,
+    });
 
-          dataSourceHealth:
-            state.dataSources,
-
-          previousMessages:
-            state.chat,
-
-          language,
-        }),
-      });
+    return message;
+  };
 
   const selectRoute =
     (routeId, reason) =>

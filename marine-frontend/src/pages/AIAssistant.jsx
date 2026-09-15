@@ -18,20 +18,25 @@ export default function AIAssistant() {
 
   const quickPrompts = t("ai.quickPrompts");
 
-  const submitMessage = (question) => {
+  const submitMessage = async (question) => {
     setError("");
     setLoading(true);
 
-    window.setTimeout(() => {
-      try {
-        askQuestion(question);
-      } catch {
-        setError(t("ai.errorStatus"));
-      } finally {
-        setLoading(false);
-      }
-    }, 180);
+    try {
+      await askQuestion(question);
+    } catch {
+      setError(t("ai.errorStatus"));
+    } finally {
+      setLoading(false);
+    }
   };
+
+  // askQuestion always resolves (it falls back to the demo template
+  // internally if agentic-core is unreachable), so use the most recent
+  // answered turn to show whether we're actually talking to the live
+  // backend or showing a demo/offline response.
+  const lastAnsweredTurn = [...state.chat].reverse().find((item) => item.question);
+  const isLiveBackend = lastAnsweredTurn ? lastAnsweredTurn.live === true : undefined;
 
   // Two scripted opening turns that seed the demo, followed by whatever the
   // person has actually asked (state.chat) rendered with the full structured
@@ -150,7 +155,7 @@ export default function AIAssistant() {
             <p>{t("ai.subtitle")}</p>
           </div>
 
-          <span className="demo-badge">{t("ai.demoBadge")}</span>
+          <span className="demo-badge">{isLiveBackend ? t("ai.liveBadge") : t("ai.demoBadge")}</span>
         </div>
 
         {/* ================= MAIN CONTENT ================= */}

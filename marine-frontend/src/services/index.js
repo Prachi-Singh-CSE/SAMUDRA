@@ -1,4 +1,5 @@
 export * from "./alertsService";
+export * from "./agenticChatService";
 export * from "./chatService";
 export * from "./dataSourceHealthService";
 export * from "./imblService";
