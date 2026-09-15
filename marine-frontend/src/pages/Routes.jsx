@@ -21,6 +21,9 @@ export default function Routes() {
   const saferRoute = routeOptions.find((route) => route.id === "safer");
   const [showReasoning, setShowReasoning] = useState(true);
 
+  const riskClass = (risk) =>
+    risk === "LOW" ? "risk-low" : risk === "MODERATE" ? "risk-moderate" : "risk-high";
+
   return (
     <div className="routes-page">
       <Sidebar />
@@ -32,13 +35,17 @@ export default function Routes() {
           <div className="route-breadcrumb">
             <span>Current location</span>
             <span className="arrow">→</span>
-            <span>Zone A (planned destination)</span>
+            <span>{fastestRoute.destination} (planned destination)</span>
             <span className="arrow">→</span>
-            <span>Vasai Safe Harbour</span>
+            <span>{saferRoute.destination}</span>
           </div>
 
           <span className="prepared-badge">
-            {state.routeChangeReason ? `${state.routeChangeReason} / PREPARED DATA` : "DEMO / PREPARED DATA"}
+            {state.routeChangeReason
+              ? `${state.routeChangeReason} / PREPARED DATA`
+              : state.routes.mode === "live"
+                ? "LIVE / PREPARED DATA"
+                : "DEMO / PREPARED DATA"}
           </span>
         </div>
 
@@ -67,7 +74,14 @@ export default function Routes() {
             >
               <div className="route-card-header">
                 <div>
-                  <h2>FASTEST ROUTE</h2>
+                  <div className="route-title-row">
+                    <h2>FASTEST ROUTE</h2>
+                    {fastestRoute.recommended && (
+                      <span className="recommended">
+                        ✓ RECOMMENDED
+                      </span>
+                    )}
+                  </div>
 
                   <div className="route-meta">
                     <span>{fastestRoute.distanceKm} km</span>
@@ -78,7 +92,7 @@ export default function Routes() {
 
                     <span>
                       Risk
-                      <b className="risk-high">HIGH</b>
+                      <b className={riskClass(fastestRoute.risk)}>{fastestRoute.risk}</b>
                     </span>
                   </div>
                 </div>
@@ -111,9 +125,11 @@ export default function Routes() {
                 <div>
                   <div className="route-title-row">
                     <h2>SAFER ROUTE</h2>
-                    <span className="recommended">
-                      ✓ RECOMMENDED
-                    </span>
+                    {saferRoute.recommended && (
+                      <span className="recommended">
+                        ✓ RECOMMENDED
+                      </span>
+                    )}
                   </div>
 
                   <div className="route-meta">
@@ -126,7 +142,7 @@ export default function Routes() {
 
                     <span>
                       Risk
-                      <b className="risk-low">LOW</b>
+                      <b className={riskClass(saferRoute.risk)}>{saferRoute.risk}</b>
                     </span>
                   </div>
                 </div>

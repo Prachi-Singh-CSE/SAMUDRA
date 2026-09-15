@@ -13,6 +13,7 @@ import {
   getLiveMarineSnapshot,
   getRiskAssessment,
   getRouteOptions,
+  getLiveRouteOptions,
   getSOSDetails,
   getWelfareSchemes,
   createSOSEvent,
@@ -399,6 +400,12 @@ function appDataReducer(state, action) {
         alerts,
       };
     }
+
+    case "live-routes-loaded":
+      return {
+        ...state,
+        routes: action.routes,
+      };
 
     case "select-route": {
       const imbl = evaluateIMBLSafety({
@@ -928,6 +935,38 @@ export function AppDataProvider({
       clearInterval(interval);
     };
   }, [positionKey, language, state.marine, state.dataSources, state.imbl]);
+
+  // Re-plan both named routes (path + live risk score) whenever the
+  // resolved position changes meaningfully, and on the same poll cadence
+  // as alerts so a route's risk score doesn't go stale while the boat
+  // holds position. getLiveRouteOptions never throws — a failed call for
+  // one route just leaves that route on its demo fallback — so this only
+  // needs to guard against a truly unexpected error.
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadRoutes() {
+      const [lat, lon] = positionKey.split(",").map(Number);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+      try {
+        const liveRoutes = await getLiveRouteOptions({ position: [lat, lon] });
+        if (!cancelled) {
+          dispatch({ type: "live-routes-loaded", routes: liveRoutes });
+        }
+      } catch (error) {
+        console.warn("⚠️ Live route loading failed:", error.message);
+      }
+    }
+
+    loadRoutes();
+    const interval = setInterval(loadRoutes, 5 * 60 * 1000);
+
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
+  }, [positionKey]);
 
   return (
     <AppDataContext.Provider

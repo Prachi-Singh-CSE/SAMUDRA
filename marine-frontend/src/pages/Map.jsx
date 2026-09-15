@@ -30,6 +30,7 @@ import "leaflet/dist/leaflet.css";
 import Sidebar from "../components/Sidebar";
 import IMBLSafetyWarning from "../components/IMBLSafetyWarning";
 import { useAppData } from "../state/useAppData";
+import { useLiveGeolocation } from "../hooks/useLiveGeolocation";
 import "./Map.css";
 
 function createIcon(type) {
@@ -98,55 +99,10 @@ function Map() {
   const selectedRoute = routes.routes.find((route) => route.id === state.selectedRouteId) || routes.routes[0];
   const [searchParams] = useSearchParams();
   const focus = searchParams.get("focus");
-  const [locationStatus, setLocationStatus] = useState(() =>
-    navigator.geolocation ? "locating" : "unavailable"
-  );
-
-  useEffect(() => {
-    if (!navigator.geolocation) {
-      return;
-    }
-
-    let settled = false;
-    const useFallback = () => {
-      if (settled) return;
-      settled = true;
-      setLocationStatus("unavailable");
-      updateLocation({
-        position: state.marine.userPosition,
-        status: "fallback",
-        source: "demo",
-      });
-    };
-    const fallbackTimer = window.setTimeout(useFallback, 3000);
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        if (settled) return;
-        settled = true;
-        window.clearTimeout(fallbackTimer);
-        setLocationStatus("available");
-        updateLocation({
-          position: [position.coords.latitude, position.coords.longitude],
-          status: "available",
-          source: "browser",
-        });
-      },
-      () => {
-        if (settled) return;
-        window.clearTimeout(fallbackTimer);
-        settled = true;
-        setLocationStatus("denied");
-        updateLocation({
-          position: state.marine.userPosition,
-          status: "fallback",
-          source: "demo",
-        });
-      }
-    );
-
-    return () => window.clearTimeout(fallbackTimer);
-  }, [state.marine.userPosition, updateLocation]);
+  // Continuous GPS tracking (watchPosition), not a one-shot fix — a vessel
+  // at sea keeps moving, so this keeps pushing updateLocation as it moves
+  // (throttled internally) instead of freezing on the first fix forever.
+  const locationStatus = useLiveGeolocation(state.marine.userPosition, updateLocation);
 
   const currentPosition = location.position || userPosition;
   const focusPosition = focus === "hazard"
