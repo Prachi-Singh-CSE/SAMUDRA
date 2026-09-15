@@ -1,3 +1,5 @@
+import { fetchAisAnomalies, mergeVesselsWithAisAnomalies } from "./aisService";
+
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
   "http://localhost:5000/api";
@@ -116,7 +118,9 @@ export function getMarineSnapshot() {
 
     fishingZones,
 
-    vessels,
+    vessels: vessels.map((vessel) => ({ ...vessel, ais: { source: "demo" } })),
+
+    aisMode: "demo",
 
     hazards,
 
@@ -192,20 +196,27 @@ export async function getLiveMarineSnapshot(
 
   const entries = Object.entries(endpoints);
 
-  const results = await Promise.allSettled(
-    entries.map(async ([key, endpoint]) => {
-      const data = await fetchLiveAPI(
-        endpoint,
-        lat,
-        lon
-      );
+  const [results, aisAnomalies] = await Promise.all([
+    Promise.allSettled(
+      entries.map(async ([key, endpoint]) => {
+        const data = await fetchLiveAPI(
+          endpoint,
+          lat,
+          lon
+        );
 
-      return {
-        key,
-        data,
-      };
-    })
-  );
+        return {
+          key,
+          data,
+        };
+      })
+    ),
+    // Separate microservice (gis-hazard-service, not the main API), and
+    // not lat/lon-scoped — it screens whatever vessel_positions rows
+    // exist in the last `sinceHours` window. Never throws: `null` means
+    // "couldn't reach it", `[]` means "reachable, nothing flagged".
+    fetchAisAnomalies({ sinceHours: 6 }),
+  ]);
 
   const liveData = {};
 
@@ -248,6 +259,21 @@ export async function getLiveMarineSnapshot(
   const pfz = liveData.pfz;
 
   // ==========================================================
+  // LIVE AIS
+  // ==========================================================
+
+  const { vessels: liveVessels, mode: aisMode } = mergeVesselsWithAisAnomalies(
+    vessels,
+    aisAnomalies
+  );
+
+  if (aisMode === "unavailable") {
+    console.warn("⚠️ Live AIS unavailable — showing demo vessel contacts only");
+  } else {
+    console.log(`✅ Live AIS data loaded (${aisAnomalies.length} anomal${aisAnomalies.length === 1 ? "y" : "ies"})`);
+  }
+
+  // ==========================================================
   // RETURN COMPLETE MARINE SNAPSHOT
   // ==========================================================
 
@@ -259,7 +285,9 @@ export async function getLiveMarineSnapshot(
     // Existing UI data
     fishingZones,
 
-    vessels,
+    vessels: liveVessels,
+
+    aisMode,
 
     hazards,
 

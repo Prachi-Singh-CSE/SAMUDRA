@@ -149,11 +149,23 @@ export default function MarineLeafletMap({
             <Popup>
               <strong>{vessel.name}</strong>
               <br />
-              Status: {vessel.suspicious ? "Suspicious demo contact" : "Demo vessel activity"}
+              Status: {vessel.ais?.source === "live"
+                ? "Live AIS anomaly contact"
+                : vessel.suspicious
+                  ? "Suspicious demo contact"
+                  : "Demo vessel activity"}
               <br />
               Approx. location: {vessel.position.join(", ")}
               <br />
-              AIS: DEMO / PROVIDER PENDING
+              {vessel.ais?.source === "live" ? (
+                <>
+                  AIS: LIVE — {vessel.ais.anomalyType?.replace(/_/g, " ")}
+                  <br />
+                  {vessel.ais.detail}
+                </>
+              ) : (
+                "AIS: DEMO / PROVIDER PENDING"
+              )}
 
               {vessel.suspicious && (
                 <>

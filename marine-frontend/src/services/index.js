@@ -1,3 +1,4 @@
+export * from "./aisService";
 export * from "./alertsService";
 export * from "./agenticChatService";
 export * from "./chatService";

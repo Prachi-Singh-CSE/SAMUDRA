@@ -35,7 +35,11 @@ app.use((req, res) => {
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+// Default 5001, not 5000: the main Node backend (backend/server.js) already
+// defaults to 5000, and the frontend's gisApi client (marine-frontend/src/
+// services/api.js) points at 5001 by default. Keeping this in sync avoids a
+// silent port collision when both services are started with their defaults.
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`[gis-hazard-service] listening on port ${PORT}`);
 });
