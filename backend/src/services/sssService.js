@@ -1,4 +1,10 @@
 const axios = require("axios");
+const {
+    getCache,
+    getStaleCache,
+    setCache
+} = require("./cacheService");
+const { checkDataHealth } = require("../utils/dataHealth");
 
 const DATASET = "noaacwSMAPsssDaily";
 
@@ -6,15 +12,27 @@ const BASE_URL =
     `https://coastwatch.noaa.gov/erddap/griddap/${DATASET}.csv`;
 
 const getSSSData = async (lat, lon) => {
-    try {
-        const latitude = Number(lat);
-        const longitude = Number(lon);
+    const latitude = Number(lat);
+    const longitude = Number(lon);
+    const cacheKey = `sss:${latitude}:${longitude}`;
 
+    try {
         if (
             !Number.isFinite(latitude) ||
             !Number.isFinite(longitude)
         ) {
             throw new Error("Invalid coordinates");
+        }
+
+        // =========================
+        // CACHE CHECK
+        // =========================
+
+        const cachedData = getCache(cacheKey);
+
+        if (cachedData) {
+            console.log("⚡ SSS data served from fresh cache");
+            return cachedData;
         }
 
         /*
@@ -52,8 +70,13 @@ const getSSSData = async (lat, lon) => {
             const gridLon =
                 baseLon + lonOffset * 0.25;
 
+            /*
+             * ERDDAP's "(last)" keyword always resolves to the
+             * most recent available timestep, so we no longer
+             * need to hardcode a date here.
+             */
             const query =
-                `sss[(2026-09-10T12:00:00Z)][(0)][(${gridLat})][(${gridLon})]`;
+                `sss[(last)][(0)][(${gridLat})][(${gridLon})]`;
 
             const url =
                 `${BASE_URL}?${encodeURIComponent(query)}`;
@@ -127,7 +150,7 @@ const getSSSData = async (lat, lon) => {
                     value
                 );
 
-                return {
+                const result = {
                     value:
                         Number(value.toFixed(3)),
 
@@ -154,6 +177,10 @@ const getSSSData = async (lat, lon) => {
                         new Date().toISOString()
                 };
 
+                setCache(cacheKey, result);
+
+                return result;
+
             } catch (cellError) {
 
                 console.log(
@@ -169,7 +196,32 @@ const getSSSData = async (lat, lon) => {
 
         /*
          * No valid nearby satellite cell found.
+         * Fall back to stale cache before giving up.
          */
+
+        const noCellStale = getStaleCache(cacheKey);
+
+        if (noCellStale) {
+            console.log(
+                `⚠️ No live SSS cell found. Serving stale cache (${noCellStale.ageMinutes} minutes old)`
+            );
+
+            const staleHealth = checkDataHealth(
+                noCellStale.data.retrievedAt
+            );
+
+            return {
+                ...noCellStale.data,
+                dataStatus: "stale",
+                cacheStatus: "stale",
+                staleAgeMinutes: noCellStale.ageMinutes,
+                dataHealth: {
+                    ...staleHealth,
+                    status: "STALE"
+                },
+                message: "Live NOAA SMAP SSS unavailable. Showing cached data."
+            };
+        }
 
         return {
             value: null,
@@ -201,6 +253,30 @@ const getSSSData = async (lat, lon) => {
             "❌ NOAA SSS Error:",
             error.message
         );
+
+        const staleCache = getStaleCache(cacheKey);
+
+        if (staleCache) {
+            console.log(
+                `⚠️ Live SSS call failed. Serving stale cache (${staleCache.ageMinutes} minutes old)`
+            );
+
+            const staleHealth = checkDataHealth(
+                staleCache.data.retrievedAt
+            );
+
+            return {
+                ...staleCache.data,
+                dataStatus: "stale",
+                cacheStatus: "stale",
+                staleAgeMinutes: staleCache.ageMinutes,
+                dataHealth: {
+                    ...staleHealth,
+                    status: "STALE"
+                },
+                message: "Live NOAA SMAP SSS unavailable. Showing cached data."
+            };
+        }
 
         return {
             value: null,
