@@ -1,3 +1,10 @@
+const {
+    getCache,
+    getStaleCache,
+    setCache
+} = require("./cacheService");
+const { checkDataHealth } = require("../utils/dataHealth");
+
 const DATASET = "noaacwNPPN20VIIRSDINEOFDaily";
 
 const NOAA_URL =
@@ -6,8 +13,20 @@ const NOAA_URL =
 const getChlorophyllData = async (lat, lon) => {
     const latitude = Number(lat);
     const longitude = Number(lon);
+    const cacheKey = `chlorophyll:${latitude}:${longitude}`;
 
     try {
+        // =========================
+        // CACHE CHECK
+        // =========================
+
+        const cachedData = getCache(cacheKey);
+
+        if (cachedData) {
+            console.log("⚡ Chlorophyll data served from fresh cache");
+            return cachedData;
+        }
+
         // NOAA endpoint
         // NOTE: NOAA may be unavailable from local network.
         // We keep a fallback so PFZ does not break.
@@ -19,14 +38,13 @@ const getChlorophyllData = async (lat, lon) => {
         }, 8000);
 
         /*
-         * We currently use a known recent date.
-         * Once NOAA connectivity is available,
-         * we will make this dynamically discover the latest date.
+         * ERDDAP supports the special keyword "(last)" for the
+         * time dimension, which always resolves to the most
+         * recent timestep available in the dataset — so we no
+         * longer need to hardcode a date.
          */
-        const date = "2026-08-21T12:00:00Z";
-
         const query =
-            `chlor_a[(${date})][(${latitude})][(${longitude})]`;
+            `chlor_a[(last)][(${latitude})][(${longitude})]`;
 
         const url =
             `${NOAA_URL}?${encodeURIComponent(query)}`;
@@ -62,6 +80,11 @@ const getChlorophyllData = async (lat, lon) => {
                 h => h.trim() === "chlor_a"
             );
 
+        const timeIndex =
+            headers.findIndex(
+                h => h.trim().startsWith("time")
+            );
+
         if (chlorophyllIndex === -1) {
             throw new Error("chlor_a not found");
         }
@@ -73,14 +96,25 @@ const getChlorophyllData = async (lat, lon) => {
             throw new Error("NOAA returned NaN");
         }
 
-        return {
+        // The actual timestamp ERDDAP resolved "(last)" to,
+        // read back from the response instead of assumed.
+        const resolvedDate =
+            timeIndex !== -1
+                ? values[timeIndex]?.trim()
+                : null;
+
+        const result = {
             value: Number(value.toFixed(3)),
             unit: "mg/m³",
             source: "NOAA CoastWatch VIIRS NRT DINEOF",
             dataStatus: "live",
-            date,
+            date: resolvedDate,
             retrievedAt: new Date().toISOString()
         };
+
+        setCache(cacheKey, result);
+
+        return result;
 
     } catch (error) {
 
@@ -88,6 +122,30 @@ const getChlorophyllData = async (lat, lon) => {
             "⚠️ NOAA Chlorophyll unavailable:",
             error.message
         );
+
+        const staleCache = getStaleCache(cacheKey);
+
+        if (staleCache) {
+            console.log(
+                `⚠️ Live NOAA call failed. Serving stale cache (${staleCache.ageMinutes} minutes old)`
+            );
+
+            const staleHealth = checkDataHealth(
+                staleCache.data.retrievedAt
+            );
+
+            return {
+                ...staleCache.data,
+                dataStatus: "stale",
+                cacheStatus: "stale",
+                staleAgeMinutes: staleCache.ageMinutes,
+                dataHealth: {
+                    ...staleHealth,
+                    status: "STALE"
+                },
+                message: "Live NOAA chlorophyll unavailable. Showing cached data."
+            };
+        }
 
         // Safe fallback for development/demo
         return {

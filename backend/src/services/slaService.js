@@ -1,5 +1,11 @@
 const axios = require("axios");
 const NetCDFReader = require("netcdfjs");
+const {
+    getCache,
+    getStaleCache,
+    setCache
+} = require("./cacheService");
+const { checkDataHealth } = require("../utils/dataHealth");
 
 const COLLECTION_ID =
     "C3085229833-POCLOUD";
@@ -10,15 +16,27 @@ const HARMONY_URL =
     `collections/all/coverage/rangeset`;
 
 const getSLAData = async (lat, lon) => {
-    try {
-        const latitude = Number(lat);
-        const longitude = Number(lon);
+    const latitude = Number(lat);
+    const longitude = Number(lon);
+    const cacheKey = `sla:${latitude}:${longitude}`;
 
+    try {
         if (
             !Number.isFinite(latitude) ||
             !Number.isFinite(longitude)
         ) {
             throw new Error("Invalid coordinates");
+        }
+
+        // =========================
+        // CACHE CHECK
+        // =========================
+
+        const cachedData = getCache(cacheKey);
+
+        if (cachedData) {
+            console.log("⚡ SLA data served from fresh cache");
+            return cachedData;
         }
 
         const token =
@@ -185,7 +203,7 @@ const getSLAData = async (lat, lon) => {
         const currentV =
             getFirstValidValue(vValues);
 
-        return {
+        const result = {
             value: sla,
 
             currentU,
@@ -214,11 +232,39 @@ const getSLAData = async (lat, lon) => {
                 new Date().toISOString()
         };
 
+        setCache(cacheKey, result);
+
+        return result;
+
     } catch (error) {
         console.error(
             "❌ NASA SLA Service Error:",
             error.message
         );
+
+        const staleCache = getStaleCache(cacheKey);
+
+        if (staleCache) {
+            console.log(
+                `⚠️ Live NASA SLA call failed. Serving stale cache (${staleCache.ageMinutes} minutes old)`
+            );
+
+            const staleHealth = checkDataHealth(
+                staleCache.data.retrievedAt
+            );
+
+            return {
+                ...staleCache.data,
+                dataStatus: "stale",
+                cacheStatus: "stale",
+                staleAgeMinutes: staleCache.ageMinutes,
+                dataHealth: {
+                    ...staleHealth,
+                    status: "STALE"
+                },
+                message: "Live NASA SLA unavailable. Showing cached data."
+            };
+        }
 
         return {
             value: null,
