@@ -1,0 +1,1139 @@
+/* =========================================================
+   SAMUDRA — OCEAN INTELLIGENCE
+   Sidebar-safe layout
+   ========================================================= */
+
+.samudra-ocean-page {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  background: #020d19;
+  color: #dce8ed;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  transform: none !important;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CONTENT
+   IMPORTANT:
+   Sidebar is 68px wide.
+   Content is shifted to the right by 68px.
+   ========================================================= */
+
+.samudra-ocean-content {
+  width: calc(100% - 68px);
+  max-width: calc(100% - 68px);
+
+  min-height: 100vh;
+
+  margin-left: 68px;
+  margin-right: 0;
+
+  padding: 27px 32px 40px;
+
+  background: #020d19;
+
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.samudra-ocean-header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  min-height: 53px;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #193546;
+
+  box-sizing: border-box;
+}
+
+.samudra-ocean-heading {
+  min-width: 0;
+}
+
+.samudra-ocean-heading h1 {
+  margin: 0;
+
+  color: #e4eef2;
+
+  font-size: 29px;
+  font-weight: 600;
+}
+
+.samudra-ocean-heading p {
+  max-width: 680px;
+
+  margin: 6px 0 0;
+
+  color: #708793;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   HEADER STATUS
+   ========================================================= */
+
+.samudra-ocean-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding-top: 2px;
+
+  flex-shrink: 0;
+}
+
+.samudra-fresh {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 5px 7px;
+
+  background: #062b29;
+
+  border: 1px solid #155c53;
+  border-radius: 4px;
+
+  color: #47c99d;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.samudra-fresh-dot {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #47c99d;
+}
+
+.samudra-updated {
+  color: #647c88;
+  font-size: 12px;
+}
+
+.samudra-tag {
+  padding: 5px 7px;
+
+  border: 1px solid #253f4e;
+  border-radius: 3px;
+
+  color: #6c8490;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.samudra-ocean-layout {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(0, 1fr);
+
+  gap: 11px;
+
+  margin-top: 11px;
+
+  min-height: calc(100vh - 150px);
+
+  align-items: stretch;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LEFT PROFILE CARD
+   ========================================================= */
+
+.samudra-profile-card {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #071624;
+
+  border: 1px solid #19384a;
+  border-radius: 9px;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+   ========================================================= */
+
+.samudra-card-header {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 11px 13px;
+
+  border-bottom: 1px solid #183546;
+
+  flex-shrink: 0;
+}
+
+.samudra-card-icon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #092533;
+
+  border: 1px solid #195568;
+  border-radius: 6px;
+
+  color: #45cad4;
+}
+
+.samudra-card-header h2 {
+  margin: 0;
+
+  color: #dce8ed;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.samudra-card-header p {
+  margin: 4px 0 0;
+
+  color: #6f8793;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   PROFILE TABLE
+   ========================================================= */
+
+.samudra-profile-table {
+  width: calc(100% - 20px);
+
+  margin: 11px 10px 0;
+
+  border: 1px solid #1b394a;
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   PROFILE ROWS
+   ========================================================= */
+
+.samudra-profile-row {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 72px;
+
+  display: grid;
+
+  grid-template-columns:
+    72px
+    minmax(0, 1fr)
+    95px;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 12px;
+
+  background: #0a1b2b;
+
+  border-bottom: 1px solid #294758;
+
+  box-sizing: border-box;
+}
+
+.samudra-profile-row:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   DEPTH
+   ========================================================= */
+
+.samudra-depth {
+  color: #dce8ed;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PROFILE MIDDLE
+   ========================================================= */
+
+.samudra-profile-middle {
+  width: 100%;
+  min-width: 0;
+}
+
+.samudra-profile-values {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-bottom: 8px;
+
+  color: #c4d2d7;
+
+  font-size: 13px;
+}
+
+.samudra-separator {
+  color: #566f7c;
+}
+
+
+/* =========================================================
+   PROFILE BAR
+   ========================================================= */
+
+.samudra-profile-track {
+  width: 100%;
+  height: 6px;
+
+  background: #142c3c;
+
+  border-radius: 4px;
+
+  overflow: hidden;
+}
+
+.samudra-profile-fill {
+  height: 100%;
+
+  background: #3bcbd5;
+
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   TYPE
+   ========================================================= */
+
+.samudra-type {
+  justify-self: end;
+
+  padding: 5px 8px;
+
+  border-radius: 3px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.samudra-observed {
+  background: #06312d;
+
+  border: 1px solid #185e54;
+
+  color: #47c89c;
+}
+
+.samudra-prediction {
+  background: #082d38;
+
+  border: 1px solid #155d69;
+
+  color: #42cad4;
+}
+
+
+/* =========================================================
+   PROFILE NOTE
+   ========================================================= */
+
+.samudra-profile-note {
+  margin: 10px 13px 13px;
+
+  color: #617984;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RIGHT COLUMN
+   ========================================================= */
+
+.samudra-ocean-right {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+
+/* =========================================================
+   PREDICTION CARD
+   ========================================================= */
+
+.samudra-prediction-card {
+  width: 100%;
+
+  padding: 13px;
+
+  background: #071624;
+
+  border: 1px solid #19384a;
+  border-radius: 9px;
+
+  flex-shrink: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PREDICTION HEADER
+   ========================================================= */
+
+.samudra-prediction-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.samudra-prediction-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.samudra-prediction-title h2 {
+  margin: 0;
+
+  color: #dce8ed;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.samudra-prediction-title p {
+  margin: 4px 0 0;
+
+  color: #708793;
+
+  font-size: 12px;
+}
+
+.samudra-prediction-label {
+  padding: 5px 7px;
+
+  background: #082c37;
+
+  border: 1px solid #155a67;
+  border-radius: 3px;
+
+  color: #43cbd4;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TEMPERATURE / SALINITY
+   ========================================================= */
+
+.samudra-value-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 9px;
+
+  margin-top: 12px;
+}
+
+.samudra-value-box {
+  min-width: 0;
+  min-height: 66px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 11px;
+
+  background: #0a1a29;
+
+  border: 1px solid #173447;
+  border-radius: 5px;
+}
+
+.samudra-value-box span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #637b87;
+
+  font-size: 12px;
+}
+
+.samudra-value-box strong {
+  color: #dbe7eb;
+
+  font-size: 30px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   CONFIDENCE
+   ========================================================= */
+
+.samudra-confidence {
+  margin-top: 12px;
+}
+
+.samudra-confidence-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #637b87;
+
+  font-size: 12px;
+}
+
+.samudra-confidence-top strong {
+  color: #c7d5da;
+
+  font-size: 12px;
+}
+
+.samudra-confidence-track {
+  width: 100%;
+  height: 5px;
+
+  margin-top: 6px;
+
+  background: #142c3c;
+
+  border-radius: 4px;
+
+  overflow: hidden;
+}
+
+.samudra-confidence-track div {
+  width: 81%;
+  height: 100%;
+
+  background: #3bcbd5;
+
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   REASONING BUTTON
+   ========================================================= */
+
+.samudra-reasoning-button {
+  width: 100%;
+  height: 34px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 11px;
+
+  padding: 0 11px;
+
+  background: #0a1b2a;
+
+  border: 1px solid #1a394b;
+  border-radius: 5px;
+
+  color: #b9cbd1;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+.samudra-reasoning-button:hover {
+  background: #0d2333;
+  border-color: #245266;
+}
+
+.samudra-reasoning-button span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.samudra-reasoning-button span svg {
+  color: #43cad4;
+}
+
+.samudra-arrow-open {
+  transform: rotate(180deg) !important;
+}
+
+
+/* =========================================================
+   REASONING CONTENT
+   ========================================================= */
+
+.samudra-reasoning {
+  padding: 10px 11px;
+
+  background: #061522;
+
+  border: 1px solid #1a394b;
+  border-top: none;
+
+  color: #718793;
+
+  font-size: 12px;
+}
+
+.samudra-reasoning p {
+  margin: 0 0 8px;
+
+  line-height: 1.5;
+}
+
+.samudra-reasoning div {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 6px 0;
+
+  border-top: 1px solid #142c3b;
+}
+
+.samudra-reasoning strong {
+  color: #48c79b;
+}
+
+
+/* =========================================================
+   CHART CARD
+   ========================================================= */
+
+.samudra-chart-card {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 13px;
+
+  background: #071624;
+
+  border: 1px solid #19384a;
+  border-radius: 9px;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CHART HEADER
+   ========================================================= */
+
+.samudra-chart-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+}
+
+.samudra-chart-icon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #092533;
+
+  border: 1px solid #195568;
+  border-radius: 6px;
+
+  color: #43cbd4;
+}
+
+.samudra-chart-header h2 {
+  margin: 0;
+
+  color: #dce8ed;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.samudra-chart-header p {
+  margin: 4px 0 0;
+
+  color: #708793;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   CHART AREA
+   ========================================================= */
+
+.samudra-chart {
+  width: 100%;
+
+  margin-top: 22px;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  min-width: 0;
+}
+
+.samudra-chart-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    45px
+    minmax(0, 1fr)
+    78px;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.samudra-chart-date {
+  color: #647c88;
+
+  font-size: 12px;
+}
+
+.samudra-chart-track {
+  width: 100%;
+  height: 11px;
+
+  position: relative;
+
+  background: #102536;
+
+  border-radius: 2px;
+
+  overflow: hidden;
+}
+
+.samudra-chart-observed {
+  height: 100%;
+
+  background: #238a61;
+
+  border-radius: 2px;
+}
+
+.samudra-chart-marker {
+  position: absolute;
+
+  top: -5px;
+  right: 8%;
+
+  width: 2px;
+  height: 21px;
+
+  background: #4dcdd5;
+}
+
+.samudra-chart-value {
+  color: #758a95;
+
+  font-size: 12px;
+
+  text-align: right;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.samudra-chart-legend {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-top: 15px;
+
+  color: #718792;
+
+  font-size: 12px;
+
+  flex-shrink: 0;
+}
+
+.samudra-chart-legend span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.samudra-observed-legend {
+  width: 9px;
+  height: 5px;
+
+  background: #238a61;
+
+  border-radius: 2px;
+}
+
+.samudra-prediction-legend {
+  width: 2px;
+  height: 11px;
+
+  background: #4dcdd5;
+}
+
+
+/* =========================================================
+   SOURCES
+   ========================================================= */
+
+.samudra-chart-sources {
+  display: flex;
+
+  gap: 5px;
+
+  margin-top: 10px;
+
+  flex-shrink: 0;
+}
+
+.samudra-chart-sources span {
+  padding: 4px 6px;
+
+  background: #0a1b29;
+
+  border: 1px solid #203a49;
+  border-radius: 3px;
+
+  color: #6c8490;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .samudra-ocean-content {
+    padding: 25px 24px 34px;
+  }
+
+  .samudra-ocean-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .samudra-profile-card {
+    height: auto;
+    min-height: 500px;
+  }
+
+  .samudra-ocean-right {
+    height: auto;
+  }
+
+  .samudra-chart-card {
+    min-height: 320px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   Sidebar is hidden by Sidebar.css at <= 800px.
+   Therefore remove the 68px desktop offset.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .samudra-ocean-content {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: 0 !important;
+
+    min-height: calc(100vh - 56px);
+
+    padding: 76px 20px 30px;
+  }
+
+  .samudra-ocean-header {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .samudra-ocean-status {
+    width: 100%;
+
+    flex-wrap: wrap;
+
+    padding-top: 0;
+  }
+
+  .samudra-ocean-layout {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    min-height: auto;
+  }
+
+  .samudra-profile-card {
+    height: auto;
+  }
+
+  .samudra-ocean-right {
+    height: auto;
+  }
+
+  .samudra-chart-card {
+    min-height: 320px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .samudra-ocean-content {
+    padding: 70px 10px 24px;
+  }
+
+  .samudra-ocean-heading h1 {
+    font-size: 24px;
+  }
+
+  .samudra-ocean-heading p {
+    font-size: 12px;
+  }
+
+  .samudra-ocean-status {
+    gap: 5px;
+
+    flex-wrap: wrap;
+  }
+
+  .samudra-fresh,
+  .samudra-updated,
+  .samudra-tag {
+    font-size: 10px;
+  }
+
+  .samudra-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .samudra-profile-row {
+    grid-template-columns:
+      55px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 8px;
+
+    padding: 9px;
+  }
+
+  .samudra-depth {
+    font-size: 13px;
+  }
+
+  .samudra-type {
+    font-size: 10px;
+
+    padding: 4px 6px;
+  }
+
+  .samudra-profile-values {
+    font-size: 11px;
+  }
+
+  .samudra-chart-row {
+    grid-template-columns:
+      40px
+      minmax(0, 1fr)
+      65px;
+
+    gap: 6px;
+  }
+
+  .samudra-chart-value {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .samudra-ocean-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .samudra-profile-row {
+    grid-template-columns:
+      45px
+      minmax(0, 1fr);
+
+    min-height: 82px;
+  }
+
+  .samudra-type {
+    grid-column: 2;
+
+    justify-self: start;
+  }
+
+  .samudra-prediction-header {
+    flex-direction: column;
+  }
+
+  .samudra-chart-row {
+    grid-template-columns:
+      36px
+      minmax(0, 1fr)
+      55px;
+  }
+}

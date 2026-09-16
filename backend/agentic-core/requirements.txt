@@ -1,0 +1,14 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+httpx==0.27.2
+scikit-learn==1.5.2
+numpy==1.26.4
+python-multipart==0.0.9
+python-dotenv==1.0.1
+pytest==8.3.3
+pytest-asyncio==0.24.0
+
+# Only imported/required if SESSION_BACKEND=redis (see app/session_manager.py).
+# Safe to leave installed even when running the default in-memory backend.
+redis==5.0.8

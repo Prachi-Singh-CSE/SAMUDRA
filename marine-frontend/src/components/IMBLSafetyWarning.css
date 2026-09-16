@@ -1,0 +1,67 @@
+.imbl-safety-warning {
+  margin: 0 0 12px;
+  padding: 11px;
+  background: #101c2a;
+  border: 1px solid #355064;
+  border-radius: 8px;
+  color: #c9d9e0;
+}
+
+.imbl-safety-warning.imbl-caution { border-color: #9a7337; }
+.imbl-safety-warning.imbl-warning { border-color: #a35b4e; }
+.imbl-safety-warning.imbl-critical { border-color: #bd4b52; }
+
+.imbl-warning-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.imbl-warning-heading > svg { color: #e2b15c; flex-shrink: 0; }
+.imbl-critical .imbl-warning-heading > svg,
+.imbl-warning .imbl-warning-heading > svg { color: #ee7770; }
+
+.imbl-warning-heading strong,
+.imbl-warning-heading span { display: block; }
+.imbl-warning-heading strong { font-size: 13px; letter-spacing: .8px; }
+.imbl-warning-heading span { margin-top: 3px; color: #e2b15c; font-size: 14px; font-weight: 700; }
+.imbl-warning p { margin: 8px 0 0; color: #8fa5b2; font-size: 14px; line-height: 1.45; }
+.imbl-warning-data { display: flex; gap: 17px; margin-top: 8px; }
+.imbl-warning-data span { color: #b8cbd4; font-size: 14px; }
+.imbl-warning-data b { display: block; margin-bottom: 2px; color: #637d8b; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; }
+.imbl-warning .imbl-warning-action { color: #d99a83; }
+.imbl-safety-warning small { display: block; margin-top: 7px; color: #637b88; font-size: 12px; line-height: 1.35; }
+.imbl-warning-actions { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.imbl-warning-actions button { display: inline-flex; align-items: center; gap: 4px; padding: 5px 7px; border: 1px solid #315263; border-radius: 4px; background: #0a2432; color: #82c6d0; font-size: 13px; cursor: pointer; }
+.imbl-warning-actions button:hover { background: #10394a; }
+
+/* Dwell countdown — shown only while inside the buffer and not yet
+   escalated. This is the "brief drift" state: local, on-app only. */
+.imbl-dwell { margin-top: 9px; }
+.imbl-dwell-label { display: flex; align-items: center; gap: 5px; color: #e2b15c; font-size: 13px; }
+.imbl-critical .imbl-dwell-label,
+.imbl-warning .imbl-dwell-label { color: #ee7770; }
+.imbl-dwell-track { margin-top: 5px; height: 4px; border-radius: 2px; background: #0a2432; overflow: hidden; }
+.imbl-dwell-fill { height: 100%; border-radius: 2px; background: #e2b15c; transition: width 1s linear; }
+.imbl-critical .imbl-dwell-fill,
+.imbl-warning .imbl-dwell-fill { background: #ee7770; }
+
+/* Escalated state — deliberately distinct from the plain on-app warning
+   above, so it reads as "this left the phone and reached the authority
+   dashboard", not just another local status change. */
+.imbl-escalated { border-color: #bd4b52; background: #1c1013; }
+.imbl-escalated-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 9px;
+  padding: 6px 8px;
+  border: 1px solid #bd4b52;
+  border-radius: 5px;
+  background: #2a1417;
+  color: #ff9b93;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+.imbl-escalated-badge svg { flex-shrink: 0; color: #ff9b93; }

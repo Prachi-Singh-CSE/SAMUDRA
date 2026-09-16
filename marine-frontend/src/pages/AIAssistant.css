@@ -1,0 +1,235 @@
+.ai-page {
+  min-height: 100vh;
+  background: #020d19;
+  color: #dce8ed;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.ai-main {
+  width: 100%;
+  padding: 16px 22px 22px;
+  box-sizing: border-box;
+}
+
+/* ================= HEADER ================= */
+
+.ai-page-heading {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-bottom: 1px solid #183243;
+}
+
+.ai-heading-icon {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #195c6b;
+  border-radius: 7px;
+
+  background: #082430;
+  color: #4bd7df;
+}
+
+.ai-page-heading h1 {
+  margin: 0;
+
+  color: #e9f2f5;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.ai-page-heading p {
+  margin: 2px 0 0;
+
+  color: #718995;
+  font-size: 14px;
+}
+
+.demo-badge {
+  margin-left: auto;
+
+  padding: 4px 7px;
+
+  border: 1px solid #315266;
+  border-radius: 4px;
+
+  color: #76909e;
+  font-size: 12px;
+  letter-spacing: 0.7px;
+}
+
+/* ================= LAYOUT ================= */
+
+.ai-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 10px;
+
+  height: calc(100vh - 105px);
+  min-height: 590px;
+
+  padding-top: 9px;
+}
+
+/* Chat panel, message, reasoning, suggestion, and input styles now live in
+   ../components/ChatWindow.css (shared with the Welfare Scheme Assistant). */
+
+/* ================= SIDEBAR ================= */
+
+.ai-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  min-width: 0;
+
+  overflow-y: auto;
+}
+
+/* QUICK PROMPTS */
+
+.quick-prompts,
+.copilot-context {
+  padding: 11px;
+
+  background: #061523;
+
+  border: 1px solid #1b3749;
+  border-radius: 9px;
+}
+
+.ai-sidebar h2 {
+  margin: 0 0 9px;
+
+  color: #dbe7ec;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.prompt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.prompt-list button {
+  min-height: 25px;
+
+  padding: 5px 8px;
+
+  text-align: left;
+
+  border: 1px solid #253e4d;
+  border-radius: 5px;
+
+  background: #091a28;
+
+  color: #a9bac3;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.prompt-list button:hover {
+  border-color: #2b6e7b;
+  color: #4dd5dc;
+}
+
+/* CONTEXT */
+
+.context-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.context-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 8px 0;
+
+  border-bottom: 1px solid #152d3c;
+}
+
+.context-item span {
+  color: #627b89;
+  font-size: 13px;
+}
+
+.context-item strong {
+  color: #becdd3;
+  font-size: 13px;
+  text-align: right;
+}
+
+.context-danger {
+  color: #ed8c38 !important;
+}
+
+/* SOURCES */
+
+.context-sources {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+
+  margin-top: 9px;
+}
+
+.context-sources span {
+  padding: 3px 5px;
+
+  border: 1px solid #243b4a;
+  border-radius: 3px;
+
+  color: #718794;
+
+  font-size: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+  .ai-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .chat-panel {
+    min-height: 600px;
+  }
+
+  .ai-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .ai-main {
+    padding: 10px;
+  }
+
+  .ai-sidebar {
+    display: flex;
+  }
+
+  .ai-page-heading p {
+    display: none;
+  }
+
+  .user-message {
+    max-width: 85%;
+  }
+}

@@ -1,0 +1,401 @@
+/* ============================================================
+   APP SIDEBAR — collapsed icon rail that expands on hover
+============================================================ */
+
+:root {
+  --sidebar-collapsed: 68px;
+  --sidebar-expanded: 220px;
+}
+
+.app-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-collapsed);
+
+  display: flex;
+  flex-direction: column;
+
+  background: #061a29;
+  border-right: 1px solid #16303f;
+
+  overflow: hidden;
+  z-index: 40;
+
+  transition: width 0.18s ease;
+}
+
+.app-sidebar:hover,
+.app-sidebar:focus-within {
+  width: var(--sidebar-expanded);
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Every page's content sits after the sidebar in the DOM —
+   reserve the collapsed rail width regardless of hover state
+   so the hover-expand never causes layout shift.
+   width is forced because several pages hard-code width:100%,
+   which combined with margin-left would overflow the viewport. */
+.app-sidebar ~ * {
+  margin-left: var(--sidebar-collapsed);
+  width: calc(100% - var(--sidebar-collapsed)) !important;
+  max-width: calc(100% - var(--sidebar-collapsed));
+  box-sizing: border-box;
+}
+
+/* ---------------- BRAND ---------------- */
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  height: 60px;
+  min-height: 60px;
+  padding: 0 16px;
+
+  text-decoration: none;
+  color: inherit;
+
+  border-bottom: 1px solid #16303f;
+}
+
+.sidebar-logo {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #09b5d5;
+  color: #00212c;
+}
+
+.sidebar-brand-text {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #f1f5f7;
+
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.app-sidebar:hover .sidebar-brand-text,
+.app-sidebar:focus-within .sidebar-brand-text {
+  opacity: 1;
+}
+
+/* ---------------- NAV ---------------- */
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  padding: 10px 10px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  height: 42px;
+  min-height: 42px;
+  padding: 0 13px;
+
+  border-radius: 8px;
+  border: none;
+
+  background: transparent;
+  color: #8298a8;
+
+  font-size: 13.5px;
+  font-family: inherit;
+
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  width: 100%;
+  text-align: left;
+
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-item svg {
+  flex-shrink: 0;
+}
+
+.sidebar-item:hover {
+  color: #d6e4eb;
+  background: #0b2738;
+}
+
+.sidebar-item.active {
+  color: #23c7e5;
+  background: #082b3c;
+}
+
+.sidebar-label {
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.app-sidebar:hover .sidebar-label,
+.app-sidebar:focus-within .sidebar-label {
+  opacity: 1;
+}
+
+/* ---------------- FOOTER (notifications / language / profile) ---------------- */
+
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  padding: 10px;
+  border-top: 1px solid #16303f;
+}
+
+.sidebar-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notification-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background: #e83e46;
+  border: 1.5px solid #061a29;
+}
+
+.sidebar-language {
+  position: relative;
+}
+
+.language-menu {
+  position: absolute;
+  bottom: 4px;
+  left: calc(100% + 8px);
+
+  min-width: 130px;
+
+  margin: 0;
+  padding: 6px;
+
+  list-style: none;
+
+  background: #071b2a;
+  border: 1px solid #2a4456;
+  border-radius: 8px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+  z-index: 50;
+}
+
+.language-menu li + li {
+  margin-top: 2px;
+}
+
+.language-menu button {
+  width: 100%;
+
+  padding: 8px 10px;
+
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+
+  color: #d6e0e5;
+  font-size: 13px;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.language-menu button:hover {
+  background: #0b2738;
+  color: #24c9e5;
+}
+
+.language-menu button.active {
+  color: #23c7e5;
+  background: #082b3c;
+}
+
+/* ============================================================
+   MOBILE TOP BAR + DRAWER (≤ 800px)
+============================================================ */
+
+.mobile-topbar {
+  display: none;
+}
+
+.mobile-nav-backdrop {
+  display: none;
+}
+
+.mobile-nav-drawer {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .app-sidebar {
+    display: none;
+  }
+
+  .app-sidebar ~ * {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .mobile-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 16px;
+
+    background: #061a29;
+    border-bottom: 1px solid #16303f;
+  }
+
+  .mobile-topbar ~ *:not(.app-sidebar):not(.mobile-nav-backdrop):not(.mobile-nav-drawer) {
+    margin-top: 56px;
+  }
+
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    color: #f1f5f7;
+
+    text-decoration: none;
+  }
+
+  .mobile-topbar-toggle {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #2a4456;
+    border-radius: 8px;
+
+    background: #071b2a;
+    color: #bdcbd3;
+
+    cursor: pointer;
+  }
+
+  .mobile-nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+
+    background: rgba(2, 10, 16, 0.6);
+    border: none;
+
+    z-index: 45;
+  }
+
+  .mobile-nav-drawer {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 240px;
+
+    padding: 70px 10px 20px;
+
+    background: #061a29;
+    border-right: 1px solid #16303f;
+
+    box-shadow: 12px 0 32px rgba(0, 0, 0, 0.4);
+
+    z-index: 46;
+
+    overflow-y: auto;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    min-height: 44px;
+
+    padding: 0 13px;
+
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+
+    color: #b4c4cf;
+    font-size: 14px;
+
+    text-decoration: none;
+  }
+
+  .mobile-nav-item:hover {
+    background: #0b2738;
+    color: #d6e4eb;
+  }
+
+  .mobile-nav-item.active {
+    color: #23c7e5;
+    background: #082b3c;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    margin: 8px 4px;
+    background: #16303f;
+  }
+}

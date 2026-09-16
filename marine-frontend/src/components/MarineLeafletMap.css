@@ -1,0 +1,256 @@
+.marine-leaflet-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.marine-leaflet-map {
+  width: 100%;
+  height: 100%;
+  background: #031923;
+}
+
+
+/* -----------------------------
+   LEAFLET DARK THEME
+----------------------------- */
+
+.marine-leaflet-map .leaflet-control-zoom {
+  border: 1px solid #3a5361 !important;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.marine-leaflet-map .leaflet-control-zoom a {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+
+  background: #071c2a;
+  color: #9aadb7;
+
+  border: 0 !important;
+}
+
+.marine-leaflet-map .leaflet-control-zoom a:hover {
+  background: #0b2a3a;
+  color: #20c5df;
+}
+
+
+/* -----------------------------
+   LAYER CONTROL
+----------------------------- */
+
+.marine-leaflet-map .leaflet-control-layers {
+  margin-top: 15px;
+  margin-right: 15px;
+
+  border: 1px solid #3a5361;
+
+  border-radius: 7px;
+
+  background: rgba(7, 28, 42, 0.96);
+
+  color: #9aadb7;
+
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.marine-leaflet-map .leaflet-control-layers-toggle {
+  width: 34px;
+  height: 34px;
+
+  background-color: #071c2a;
+}
+
+.marine-leaflet-map .leaflet-control-layers-list {
+  padding: 9px;
+}
+
+.marine-leaflet-map .leaflet-control-layers label {
+  margin: 6px 0;
+}
+
+
+/* -----------------------------
+   POPUPS
+----------------------------- */
+
+.marine-leaflet-map .leaflet-popup-content-wrapper,
+.marine-leaflet-map .leaflet-popup-tip {
+  background: #071c2a;
+  color: #dceaf0;
+}
+
+.marine-leaflet-map .leaflet-popup-content {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.marine-leaflet-map .leaflet-popup-content strong {
+  color: #20c5df;
+}
+
+.marine-leaflet-map .leaflet-popup-close-button {
+  color: #8aa1ad !important;
+}
+
+
+/* -----------------------------
+   CUSTOM MARKERS
+----------------------------- */
+
+.marine-marker-wrapper {
+  background: transparent;
+  border: 0;
+}
+
+.marine-marker {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+/* FISHING */
+
+.fishing-marker-leaflet {
+  background: #087f68;
+
+  border: 2px solid #19d1a5;
+
+  box-shadow:
+    0 0 20px rgba(20, 205, 165, 0.45);
+}
+
+
+/* VESSEL */
+
+.vessel-marker-leaflet {
+  width: 28px;
+  height: 28px;
+
+  background: #12364a;
+
+  border: 1px solid #34708a;
+
+  font-size: 19px;
+
+  opacity: 0.95;
+}
+
+
+/* HAZARD */
+
+.hazard-marker-leaflet {
+  width: 30px;
+  height: 30px;
+
+  background: #3b2c0f;
+
+  border: 1px solid #d8a62e;
+
+  color: #e7b53d;
+}
+
+
+/* -----------------------------
+   USER LOCATION
+----------------------------- */
+
+.user-location-marker {
+  position: relative;
+
+  width: 30px;
+  height: 30px;
+}
+
+.user-location-dot {
+  position: absolute;
+
+  left: 8px;
+  top: 8px;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: #f05a5a;
+
+  border: 2px solid #ffb1b1;
+
+  box-shadow:
+    0 0 18px rgba(240, 90, 90, 0.8);
+}
+
+.user-location-pulse {
+  position: absolute;
+
+  left: 1px;
+  top: 1px;
+
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid rgba(240, 90, 90, 0.6);
+
+  border-radius: 50%;
+
+  animation: marine-location-pulse 2s infinite;
+}
+
+@keyframes marine-location-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+/* -----------------------------
+   LOCATE BUTTON
+----------------------------- */
+
+.leaflet-locate-button {
+  position: absolute;
+
+  right: 15px;
+  bottom: 95px;
+
+  z-index: 1000;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid #3a5361;
+  border-radius: 7px;
+
+  background: #071c2a;
+
+  color: #20c5df;
+
+  font-size: 32px;
+
+  cursor: pointer;
+}
+
+.leaflet-locate-button:hover {
+  background: #0b2a3a;
+}

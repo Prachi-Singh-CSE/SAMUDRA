@@ -1,0 +1,33 @@
+Scheme: Pradhan Mantri Suraksha Bima Yojana (PMSBY)
+Category: Accidental death and disability insurance
+
+Overview:
+PMSBY is a low-premium accident insurance scheme open to all Indian
+residents, including fishers, that provides a payout to the nominee in
+case of accidental death, and a payout to the insured in case of
+permanent or partial disability caused by an accident (including
+accidents at sea).
+
+Who can apply:
+- Any Indian resident aged 18 to 70 with a bank or post-office account
+- Enrollment is usually done through the bank account via auto-debit of
+  the annual premium
+
+What it covers:
+- A lump-sum payout to nominees in the event of accidental death
+- A payout for total permanent disability (e.g. loss of both eyes or limbs)
+- A reduced payout for partial permanent disability
+
+How to apply (general process):
+1. Visit your bank branch (or use net banking / the bank's app) and opt
+   in to PMSBY -- most banks show this as a one-time consent form.
+2. The small annual premium is auto-debited from the linked account each
+   year during the renewal window; keep sufficient balance to avoid the
+   policy lapsing.
+3. In the event of a claim, the nominee should approach the bank branch
+   with the death certificate / medical disability certificate and
+   required KYC documents.
+
+Note: this is a general summary. Premium amount, payout amount, and
+renewal dates are set by the government and can change year to year --
+confirm the current figures with your bank or a Common Service Centre.

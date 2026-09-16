@@ -1,0 +1,37 @@
+Scheme: Diesel Subsidy for Motorized Fishing Vessels
+Category: Fuel cost relief for registered fishers
+
+Overview:
+Several coastal states offer a partial subsidy (or a diesel price
+differential / VAT relief) on the diesel used by registered motorized
+fishing boats, to reduce the operating cost of marine fishing trips.
+Exact scheme names, subsidy rates, and yearly fuel quotas differ by
+state (e.g. rates and quota per boat class vary between Maharashtra,
+Gujarat, Tamil Nadu, Kerala and other coastal states).
+
+Who can apply:
+- Owners/operators of registered motorized fishing vessels
+- The vessel must typically hold a valid fishing license/registration
+  with the state Fisheries Department
+- Some states require the applicant to be an active, resident fisher
+  (not just a boat owner) with a valid fisher ID card
+
+What it covers:
+- A subsidy amount per litre of diesel, up to an annual quota per
+  vessel/horsepower class
+- Some states route this as a direct cash reimbursement instead of a
+  point-of-sale discount
+
+How to apply (general process):
+1. Register the vessel and obtain a fishing license from the state
+   Fisheries Department if not already done.
+2. Apply for a diesel subsidy card / quota allocation, usually at the
+   local Fisheries office or through the state's fisheries web portal.
+3. Fuel purchases are recorded (via subsidy card, coupon, or receipts)
+   and reimbursement or point-of-sale discount is applied up to the
+   annual quota.
+
+Note: because quotas, per-litre rates, and the application portal are
+state-specific and revised periodically, always confirm current figures
+with the local Fisheries Department or state fisheries welfare portal
+before relying on this summary.

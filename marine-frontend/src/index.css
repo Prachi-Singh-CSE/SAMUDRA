@@ -1,0 +1,65 @@
+:root {
+  --font-sans: "Plus Jakarta Sans", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --bg: #04131e;
+  --bg-elevated: #0a1e2d;
+  --bg-card: rgba(8, 28, 42, 0.82);
+  --line: rgba(125, 168, 186, 0.22);
+  --text: #e8f2f7;
+  --muted: #93aaba;
+  --cyan: #2ec8e6;
+  --cyan-strong: #12b6d6;
+  --teal: #1bc89d;
+  --danger: #ef5b5b;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  --radius: 16px;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(46, 200, 230, 0.28);
+  color: #fff;
+}

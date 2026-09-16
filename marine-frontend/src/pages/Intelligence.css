@@ -1,0 +1,1027 @@
+/* =========================================================
+   SAMUDRA — MARITIME INTELLIGENCE
+   ========================================================= */
+
+.intelligence-page {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  background: #020d19;
+  color: #dce8ed;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  transform: none !important;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.intelligence-content {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+  padding: 27px 32px 40px;
+
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.intelligence-header {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding-bottom: 17px;
+
+  border-bottom: 1px solid #1b3445;
+}
+
+.intelligence-heading {
+  max-width: 720px;
+}
+
+.intelligence-heading h1 {
+  margin: 0;
+
+  color: #e7eff2;
+
+  font-size: 40px;
+  font-weight: 600;
+
+  letter-spacing: -0.5px;
+}
+
+.intelligence-heading p {
+  max-width: 720px;
+
+  margin: 8px 0 0;
+
+  color: #8095a1;
+
+  font-size: 21px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.intelligence-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 9px;
+
+  padding-top: 4px;
+}
+
+.intelligence-status-top {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.fresh-badge {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 9px;
+
+  background: #062b27;
+
+  border: 1px solid #116052;
+  border-radius: 4px;
+
+  color: #43c89b;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+}
+
+.fresh-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #42c99a;
+}
+
+.updated-text {
+  color: #657b88;
+
+  font-size: 14px;
+}
+
+.intelligence-tags {
+  display: flex;
+
+  gap: 7px;
+}
+
+.intelligence-tags span {
+  padding: 6px 8px;
+
+  background: #061522;
+
+  border: 1px solid #1a5363;
+  border-radius: 4px;
+
+  color: #43c8d3;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.intelligence-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(430px, 1fr);
+
+  gap: 20px;
+
+  margin-top: 20px;
+
+  align-items: stretch;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   SAR CARD
+   ========================================================= */
+
+.sar-card {
+  width: 100%;
+  min-width: 0;
+
+  background: #071624;
+
+  border: 1px solid #19384a;
+  border-radius: 11px;
+
+  overflow: hidden;
+
+  min-height: 650px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   SAR HEADER
+   ========================================================= */
+
+.sar-header {
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 17px;
+
+  background: #081928;
+
+  border-bottom: 1px solid #1d3b4d;
+}
+
+.sar-title {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.sar-icon {
+  color: #43cbd5;
+
+  font-size: 30px;
+}
+
+.sar-title strong {
+  color: #afc1c9;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+}
+
+.sar-meta {
+  color: #627986;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   SAR MAP
+   ========================================================= */
+
+.sar-map {
+  position: relative;
+
+  flex: 1;
+
+  min-height: 455px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(8, 18, 24, 0.95),
+      rgba(5, 16, 23, 0.96)
+    );
+}
+
+
+/* MAP GRID */
+
+.map-grid {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(47, 77, 88, 0.18) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(47, 77, 88, 0.18) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+}
+
+
+/* =========================================================
+   LATITUDE
+   ========================================================= */
+
+.lat {
+  position: absolute;
+
+  left: 13px;
+
+  color: #536b76;
+
+  font-size: 14px;
+
+  z-index: 2;
+}
+
+.lat-1 {
+  top: 13%;
+}
+
+.lat-2 {
+  top: 32%;
+}
+
+.lat-3 {
+  top: 51%;
+}
+
+.lat-4 {
+  top: 70%;
+}
+
+
+/* =========================================================
+   COASTLINE
+   ========================================================= */
+
+.coastline {
+  position: absolute;
+
+  top: -10%;
+  left: 25%;
+
+  width: 28px;
+  height: 125%;
+
+  transform: rotate(-18deg);
+
+  background: rgba(137, 45, 54, 0.42);
+
+  filter: blur(0.2px);
+}
+
+
+/* =========================================================
+   BOUNDARY
+   ========================================================= */
+
+.boundary-line {
+  position: absolute;
+
+  top: -15%;
+  left: 17%;
+
+  width: 2px;
+  height: 135%;
+
+  transform: rotate(-21deg);
+
+  border-left: 2px dashed #dd5065;
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   SPILL AREA
+   ========================================================= */
+
+.spill-area {
+  position: absolute;
+
+  left: 38%;
+  top: 43%;
+
+  width: 150px;
+  height: 105px;
+
+  transform: rotate(-10deg);
+
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(118, 81, 199, 0.13),
+      rgba(118, 81, 199, 0.13) 5px,
+      rgba(147, 107, 226, 0.35) 6px,
+      rgba(147, 107, 226, 0.35) 7px
+    );
+
+  border: 2px solid #8c67d9;
+
+  clip-path: polygon(
+    10% 15%,
+    82% 4%,
+    100% 54%,
+    76% 95%,
+    30% 84%,
+    0 58%
+  );
+
+  z-index: 3;
+}
+
+.spill-inner {
+  position: absolute;
+
+  width: 13px;
+  height: 13px;
+
+  left: 43%;
+  top: 40%;
+
+  transform: rotate(45deg);
+
+  background: #e63751;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 80, 100, 0.3);
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   VESSEL WITHOUT AIS
+   ========================================================= */
+
+.vessel-marker {
+  position: absolute;
+
+  left: 43%;
+  top: 46%;
+
+  width: 11px;
+  height: 11px;
+
+  background: #df304c;
+
+  transform: rotate(45deg);
+
+  z-index: 6;
+}
+
+
+/* =========================================================
+   CURRENT LOCATION
+   ========================================================= */
+
+.current-location {
+  position: absolute;
+
+  right: 17%;
+  bottom: 18%;
+
+  width: 21px;
+  height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #35c7d2;
+
+  border-radius: 50%;
+
+  background: rgba(16, 72, 82, 0.45);
+
+  z-index: 5;
+}
+
+.current-location span {
+  width: 7px;
+  height: 7px;
+
+  background: #3bcbd5;
+
+  clip-path: polygon(
+    50% 0,
+    100% 100%,
+    50% 72%,
+    0 100%
+  );
+}
+
+
+/* =========================================================
+   SMALL MARKER
+   ========================================================= */
+
+.small-marker {
+  position: absolute;
+
+  top: 17%;
+  right: 33%;
+
+  color: #8b9daa;
+
+  font-size: 19px;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   SAR FOOTER
+   ========================================================= */
+
+.sar-footer {
+  min-height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 17px;
+
+  background: #071522;
+
+  border-top: 1px solid #1b394a;
+}
+
+.sar-legend {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #7f939e;
+
+  font-size: 16px;
+}
+
+.legend-square {
+  width: 14px;
+  height: 10px;
+
+  border: 1px solid #8b6ce0;
+
+  background: rgba(120, 90, 200, 0.15);
+}
+
+.legend-diamond {
+  width: 9px;
+  height: 9px;
+
+  background: #e63850;
+
+  transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   SOURCE TAGS
+   ========================================================= */
+
+.sar-source-tags {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.source-icon {
+  color: #6b8390;
+
+  font-size: 21px;
+}
+
+.sar-source-tags span:not(.source-icon) {
+  padding: 5px 7px;
+
+  background: #0b1d2d;
+
+  border: 1px solid #263e4e;
+  border-radius: 3px;
+
+  color: #748995;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   RIGHT COLUMN
+   ========================================================= */
+
+.intelligence-right {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   DETECTION CARD
+   ========================================================= */
+
+.detection-card {
+  padding: 20px;
+
+  background: #11111a;
+
+  border: 1px solid #3e3340;
+  border-radius: 11px;
+}
+
+.detection-heading {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-bottom: 20px;
+}
+
+.warning-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: rgba(159, 94, 31, 0.2);
+
+  border-radius: 9px;
+
+  color: #f4ad24;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.detection-label {
+  margin-bottom: 5px;
+
+  color: #f2b42c;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+}
+
+.detection-heading h2 {
+  margin: 0;
+
+  color: #e7e8eb;
+
+  font-size: 34px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DETECTION VALUES
+   ========================================================= */
+
+.detection-values {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.detection-value {
+  min-height: 62px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 12px;
+
+  background: #0d0e17;
+
+  border: 1px solid #252b39;
+  border-radius: 9px;
+
+  box-sizing: border-box;
+}
+
+.detection-value span {
+  margin-bottom: 7px;
+
+  color: #667d91;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+}
+
+.detection-value strong {
+  color: #cbd6dc;
+
+  font-size: 21px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   CONFIDENCE
+   ========================================================= */
+
+.evidence-confidence {
+  margin-top: 20px;
+}
+
+.confidence-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+}
+
+.confidence-header span {
+  color: #667e91;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: 0.6px;
+}
+
+.confidence-header strong {
+  color: #c8d2d7;
+
+  font-size: 18px;
+}
+
+.confidence-track {
+  width: 100%;
+  height: 6px;
+
+  background: #17303e;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+
+.confidence-track div {
+  width: 78%;
+  height: 100%;
+
+  background: #39c6d2;
+
+  border-radius: 5px;
+}
+
+
+/* =========================================================
+   EVIDENCE CARD
+   ========================================================= */
+
+.evidence-card {
+  flex: 1;
+
+  min-height: 390px;
+
+  padding: 20px;
+
+  background: #071624;
+
+  border: 1px solid #19384a;
+  border-radius: 11px;
+
+  box-sizing: border-box;
+}
+
+.evidence-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 17px;
+}
+
+.evidence-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #092936;
+
+  border: 1px solid #1b5867;
+  border-radius: 8px;
+
+  color: #43cbd4;
+
+  font-size: 34px;
+}
+
+.evidence-heading h2 {
+  margin: 0;
+
+  color: #dce8ed;
+
+  font-size: 27px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   EVIDENCE LIST
+   ========================================================= */
+
+.evidence-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.evidence-row {
+  min-height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 8px 12px;
+
+  background: #111f31;
+
+  border: 1px solid #263b4c;
+  border-radius: 9px;
+
+  box-sizing: border-box;
+}
+
+.evidence-status {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: #0c4038;
+
+  border-radius: 6px;
+
+  color: #45cda1;
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.evidence-status.warning {
+  background: #4a341d;
+
+  color: #f0ad2a;
+}
+
+.evidence-text {
+  color: #b9c8d0;
+
+  font-size: 18px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.intelligence-disclaimer {
+  margin-top: 13px;
+
+  padding: 14px;
+
+  background: #061522;
+
+  border: 1px solid #1b3546;
+  border-radius: 8px;
+
+  color: #8094a1;
+
+  font-size: 16px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .intelligence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sar-card {
+    min-height: 550px;
+  }
+
+  .intelligence-right {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .evidence-card {
+    min-height: 100%;
+  }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .intelligence-content {
+    width: 100%;
+    min-width: 0;
+    min-height: calc(100vh - 56px);
+
+    padding: 76px 20px 30px;
+
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .intelligence-header {
+    flex-direction: column;
+  }
+
+  .intelligence-status {
+    align-items: flex-start;
+  }
+
+  .intelligence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intelligence-right {
+    grid-template-columns: 1fr;
+  }
+
+  .detection-values {
+    grid-template-columns: 1fr;
+  }
+
+  .sar-footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 12px 15px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+  .intelligence-heading h1 {
+    font-size: 34px;
+  }
+
+  .intelligence-heading p {
+    font-size: 18px;
+  }
+
+  .intelligence-tags {
+    flex-wrap: wrap;
+  }
+
+  .sar-map {
+    min-height: 380px;
+  }
+
+  .detection-card,
+  .evidence-card {
+    padding: 15px;
+  }
+}

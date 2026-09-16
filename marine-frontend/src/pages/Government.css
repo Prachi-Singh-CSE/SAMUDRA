@@ -1,0 +1,816 @@
+/* =========================================================
+   SAMUDRA — GOVERNMENT SUPPORT
+   ========================================================= */
+
+.support-page {
+  width: 100%;
+  min-height: calc(100vh - 61px);
+
+  margin: 0;
+  padding: 0;
+
+  background: #020d19;
+  color: #dce8ed;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  transform: none !important;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.support-content {
+  width: 100%;
+
+  padding: 12px 7.2% 30px;
+
+  background: #020d19;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.support-header {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 0 0 12px;
+
+  border-bottom: 1px solid #1c3545;
+}
+
+.support-header h1 {
+  margin: 0;
+
+  color: #e2edf1;
+
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.support-header p {
+  margin: 6px 0 0;
+
+  color: #8095a0;
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.support-demo-tag {
+  margin-top: 2px;
+
+  padding: 5px 8px;
+
+  border: 1px solid #195364;
+  border-radius: 4px;
+
+  color: #48cbd4;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.support-layout {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.16fr);
+
+  gap: 20px;
+
+  margin-top: 12px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT
+   ========================================================= */
+
+.support-left {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   COMMON CARD
+   ========================================================= */
+
+.card {
+  width: 100%;
+
+  background: #071624;
+
+  border: 1px solid #19384a;
+  border-radius: 11px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SCHEME ASSISTANT
+   ========================================================= */
+
+.scheme-assistant {
+  padding: 20px;
+}
+
+.assistant-heading {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+}
+
+.assistant-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #092a38;
+
+  border: 1px solid #185a69;
+  border-radius: 8px;
+
+  color: #42cbd5;
+
+  font-size: 29px;
+}
+
+.assistant-heading h2 {
+  margin: 0;
+
+  color: #e0ebef;
+
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.assistant-heading p {
+  max-width: 410px;
+
+  margin: 5px 0 0;
+
+  color: #8298a4;
+
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   QUESTION CHIPS
+   ========================================================= */
+
+.question-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 15px;
+}
+
+.question-chip {
+  padding: 8px 12px;
+
+  background: transparent;
+
+  border: 1px solid #a6b3bd;
+  border-radius: 18px;
+
+  color: #b7c7ce;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.question-chip:hover {
+  border-color: #32c6d2;
+  color: #48cbd4;
+}
+
+.question-chip.active {
+  border-color: #19879b;
+
+  color: #44cbd5;
+
+  background: #062331;
+}
+
+
+/* =========================================================
+   AI RESPONSE
+   ========================================================= */
+
+.assistant-response {
+  margin-top: 15px;
+  padding: 16px;
+
+  background: #111d30;
+
+  border: 1px solid #24394d;
+  border-radius: 10px;
+}
+
+.response-title {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 10px;
+
+  color: #46cad4;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+}
+
+.response-title span {
+  font-size: 22px;
+}
+
+.assistant-response p {
+  margin: 0;
+
+  color: #c2d0d7;
+
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.response-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 12px;
+  padding-top: 11px;
+
+  border-top: 1px solid #59616a;
+}
+
+.response-source {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.response-source span {
+  color: #607784;
+
+  font-size: 19px;
+}
+
+.response-source small {
+  padding: 4px 7px;
+
+  background: #17263a;
+
+  border: 1px solid #304357;
+  border-radius: 4px;
+
+  color: #8195a1;
+
+  font-size: 12px;
+}
+
+.confidence {
+  color: #687f8d;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   ASK BOX
+   ========================================================= */
+
+.ask-box {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 16px;
+}
+
+.ask-box input {
+  flex: 1;
+
+  min-width: 0;
+  height: 42px;
+
+  padding: 0 14px;
+
+  background: #101d2e;
+
+  border: 1px solid #9aa8b3;
+  border-radius: 10px;
+
+  outline: none;
+
+  color: #dce8ed;
+
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.ask-box input::placeholder {
+  color: #728896;
+}
+
+.ask-box input:focus {
+  border-color: #35c4d0;
+}
+
+.voice-toggle {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #9aa8b3;
+  border-radius: 10px;
+
+  background: #101d2e;
+  color: #9db2bd;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.voice-toggle:hover {
+  border-color: #35c4d0;
+  color: #35c4d0;
+}
+
+.voice-toggle.is-listening {
+  background: #351b21;
+  border-color: #e45454;
+  color: #ff6d6d;
+  animation: mic-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.ask-box button {
+  width: 84px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #18bdd0;
+
+  color: #03121b;
+
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.ask-box button:hover {
+  background: #2ed0df;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+   ========================================================= */
+
+.profile-card {
+  padding: 20px;
+}
+
+.profile-card h2 {
+  margin: 0 0 17px;
+
+  color: #dce8ed;
+
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.profile-row {
+  display: grid;
+
+  grid-template-columns: 90px 1fr;
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+.profile-row span {
+  color: #607887;
+
+  font-size: 16px;
+}
+
+.profile-row strong {
+  color: #c6d3d9;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   RIGHT — SCHEMES
+   ========================================================= */
+
+.support-right {
+  min-width: 0;
+}
+
+.scheme-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+
+/* =========================================================
+   SCHEME CARD
+   ========================================================= */
+
+.scheme-card {
+  width: 100%;
+
+  background: #071624;
+
+  border: 1px solid #19384a;
+  border-radius: 11px;
+
+  overflow: hidden;
+}
+
+.scheme-card.selected {
+  border-color: #52606a;
+}
+
+
+/* =========================================================
+   SCHEME TOP
+   ========================================================= */
+
+.scheme-top {
+  width: 100%;
+
+  min-height: 82px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 15px 18px;
+
+  background: transparent;
+
+  border: none;
+
+  color: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.scheme-icon {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #42cbd5;
+
+  font-size: 29px;
+}
+
+.scheme-title-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.scheme-title-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.scheme-title-line h2 {
+  margin: 0;
+
+  color: #e0e9ed;
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.scheme-category {
+  padding: 4px 7px;
+
+  background: #121f31;
+
+  border: 1px solid #27394b;
+  border-radius: 3px;
+
+  color: #7f93a1;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+}
+
+.scheme-title-area p {
+  margin: 7px 0 0;
+
+  color: #8498a4;
+
+  font-size: 16px;
+}
+
+.scheme-chevron {
+  color: #8296a1;
+
+  font-size: 22px;
+}
+
+
+/* =========================================================
+   SCHEME DETAILS
+   ========================================================= */
+
+.scheme-details {
+  padding: 17px 21px 17px;
+
+  border-top: 1px solid #71808a;
+}
+
+.detail-section {
+  margin-bottom: 17px;
+}
+
+.detail-section h3 {
+  margin: 0 0 9px;
+
+  color: #6c8395;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.detail-section ul {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.detail-section li {
+  position: relative;
+
+  padding-left: 14px;
+
+  color: #b9c8cf;
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.detail-section li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 6px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #3bc9d4;
+}
+
+
+/* =========================================================
+   HOW TO APPLY
+   ========================================================= */
+
+.apply-box {
+  padding: 14px;
+
+  background: #111e30;
+
+  border: 1px solid #283b4d;
+  border-radius: 10px;
+}
+
+.apply-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 9px;
+
+  color: #72889a;
+
+  font-size: 14px;
+  letter-spacing: 0.8px;
+}
+
+.apply-heading span {
+  font-size: 19px;
+}
+
+.apply-box p {
+  margin: 0;
+
+  color: #b9c8cf;
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.apply-box small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #607887;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .support-content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .support-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media (max-width: 800px) {
+
+  .support-content {
+    padding: 14px;
+  }
+
+  .support-header {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .support-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .support-right {
+    width: 100%;
+  }
+
+  .profile-row {
+    grid-template-columns: 90px 1fr;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .scheme-assistant,
+  .profile-card {
+    padding: 15px;
+  }
+
+  .question-chip {
+    width: 100%;
+
+    text-align: left;
+  }
+
+  .ask-box {
+    flex-direction: column;
+  }
+
+  .ask-box button {
+    width: 100%;
+  }
+
+  .profile-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .profile-row strong {
+    text-align: left;
+  }
+
+  .scheme-top {
+    padding: 13px;
+  }
+
+  .scheme-details {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,66 @@
+.floating-sos {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: min(330px, calc(100vw - 36px));
+}
+
+.floating-sos-trigger,
+.floating-sos-panel button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 9px 13px;
+  border: 1px solid #7d464d;
+  border-radius: 6px;
+  background: #311b20;
+  color: #e0aaad;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+}
+
+.floating-sos-trigger.pressed,
+.floating-sos-trigger:hover,
+.floating-sos-panel button:hover {
+  background: #45252b;
+}
+
+.floating-sos-panel {
+  width: 300px;
+  padding: 13px;
+  background: #0b1928;
+  border: 1px solid #70434b;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  color: #dce8ed;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.floating-sos-panel p {
+  margin: 6px 0 10px;
+  color: #91a5b2;
+  font-size: 14px;
+}
+
+.floating-sos-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.floating-sos-actions button + button,
+.floating-sos-panel > button {
+  border-color: #36565a;
+  background: #10272b;
+  color: #8fc2bb;
+}

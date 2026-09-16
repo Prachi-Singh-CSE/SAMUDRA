@@ -1,0 +1,1084 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #031522;
+  color: #e4eef3;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.dashboard-content {
+  width: 100%;
+  padding: 27px 32px 40px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 23px;
+}
+
+.dashboard-label,
+.panel-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #20c4df;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.dashboard-header h1 {
+  margin: 7px 0 5px;
+
+  font-size: 45px;
+  line-height: 1.1;
+}
+
+.dashboard-header p {
+  margin: 0;
+
+  color: #71899a;
+
+  font-size: 19px;
+}
+
+.dashboard-location {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 9px 13px;
+
+  border: 1px solid #304957;
+  border-radius: 8px;
+
+  background: #071b2a;
+}
+
+.dashboard-location svg {
+  color: #23c6df;
+}
+
+.dashboard-location span {
+  display: block;
+
+  color: #5e7889;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.dashboard-location strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #b9cad4;
+
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   WEATHER CARDS
+========================= */
+
+.situation-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr)
+    1.05fr;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+}
+
+.dashboard-degraded-state {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: -4px 0 14px;
+  padding: 8px 10px;
+  border: 1px solid #765d3b;
+  border-radius: 6px;
+  background: #171d22;
+  color: #d5ad70;
+  font-size: 14px;
+}
+
+.weather-card,
+.safety-card {
+  min-height: 105px;
+
+  padding: 14px;
+
+  border: 1px solid #263f4e;
+  border-radius: 11px;
+
+  background: #061a29;
+}
+
+.weather-card {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.weather-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  color: #20c5df;
+
+  background: #092b3b;
+}
+
+.weather-info span,
+.safety-top span {
+  display: block;
+
+  color: #607b8c;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.weather-info strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #e1edf2;
+
+  font-size: 34px;
+}
+
+.weather-info small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #7891a1;
+
+  font-size: 14px;
+}
+
+
+/* SAFETY */
+
+.safety-card {
+  position: relative;
+}
+
+.safety-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.safety-top svg {
+  color: #19c69a;
+}
+
+.safety-score {
+  margin-top: 8px;
+
+  font-size: 43px;
+  font-weight: 800;
+}
+
+.safety-score span {
+  color: #61798a;
+
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.safety-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 5px;
+
+  color: #1bc79a;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+.safety-status span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #1bc79a;
+}
+
+
+/* =========================
+   MAIN GRID
+========================= */
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns: 1.55fr 1fr;
+
+  gap: 14px;
+
+  margin-bottom: 14px;
+}
+
+.dashboard-panel {
+  border: 1px solid #263f4e;
+  border-radius: 12px;
+
+  background: #061a29;
+
+  overflow: hidden;
+}
+
+.map-panel {
+  min-height: 480px;
+}
+
+.alerts-panel {
+  padding: 17px;
+}
+
+
+/* =========================
+   PANEL HEADER
+========================= */
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 17px;
+
+  border-bottom: 1px solid #1f3645;
+}
+
+.panel-header h2 {
+  margin: 5px 0 0;
+
+  font-size: 24px;
+}
+
+.panel-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  border: 1px solid #405866;
+  border-radius: 6px;
+
+  padding: 7px 9px;
+
+  background: #081e2d;
+
+  color: #9aadb8;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   MAP
+========================= */
+
+.dashboard-map {
+  height: 390px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 48% 55%,
+      #0b3043 0%,
+      #062334 35%,
+      #041925 75%
+    );
+}
+
+.ocean-grid {
+  position: absolute;
+  inset: -100px;
+
+  background-image:
+    linear-gradient(
+      rgba(43, 130, 157, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(43, 130, 157, 0.1) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  transform: rotate(-7deg);
+}
+
+.map-sea-label {
+  position: absolute;
+
+  top: 40%;
+  left: 34%;
+
+  color: rgba(90, 137, 155, 0.4);
+
+  font-size: 21px;
+  letter-spacing: 3px;
+}
+
+.map-india-label {
+  position: absolute;
+
+  right: 13%;
+  top: 21%;
+
+  color: rgba(90, 137, 155, 0.4);
+
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+
+/* MAP MARKERS */
+
+.dashboard-user-marker {
+  position: absolute;
+
+  left: 38%;
+  top: 61%;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: #f05252;
+
+  box-shadow:
+    0 0 0 7px rgba(240, 82, 82, 0.14),
+    0 0 25px rgba(240, 82, 82, 0.6);
+}
+
+.fishing-zone-marker {
+  position: absolute;
+
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #bffff1;
+
+  background: #087e66;
+
+  border: 2px solid #1ccfa6;
+
+  box-shadow:
+    0 0 25px rgba(20, 203, 165, 0.35);
+}
+
+.zone-one {
+  left: 59%;
+  top: 34%;
+}
+
+.zone-two {
+  left: 70%;
+  top: 51%;
+}
+
+.dashboard-route {
+  position: absolute;
+
+  left: 39%;
+  top: 61%;
+
+  width: 235px;
+  height: 2px;
+
+  background: #20c5df;
+
+  transform: rotate(-27deg);
+
+  transform-origin: left;
+
+  opacity: 0.8;
+}
+
+.route-start,
+.route-end {
+  position: absolute;
+
+  padding: 4px 6px;
+
+  border-radius: 4px;
+
+  background: #071c2a;
+
+  border: 1px solid #375463;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.route-start {
+  left: 34%;
+  top: 67%;
+
+  color: #ff6a6a;
+}
+
+.route-end {
+  left: 69%;
+  top: 27%;
+
+  color: #24ceab;
+}
+
+
+/* MAP LEGEND */
+
+.map-legend {
+  position: absolute;
+
+  bottom: 13px;
+  left: 14px;
+
+  display: flex;
+  gap: 13px;
+
+  padding: 8px 10px;
+
+  border: 1px solid #304957;
+  border-radius: 6px;
+
+  background: rgba(4, 20, 31, 0.88);
+
+  color: #7f95a3;
+
+  font-size: 13px;
+}
+
+.map-legend div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+}
+
+.legend-dot.safe {
+  background: #1bc89d;
+}
+
+.legend-dot.fishing {
+  background: #20c5df;
+}
+
+.legend-dot.warning {
+  background: #e9aa38;
+}
+
+
+/* =========================
+   ALERTS
+========================= */
+
+.alert-count {
+  width: 23px;
+  height: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #321d23;
+
+  color: #f26a6a;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.alert-item {
+  display: flex;
+  gap: 10px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #1d3342;
+}
+
+.dashboard-alert-actions {
+  display: flex;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.dashboard-alert-actions button {
+  padding: 3px 6px;
+  border: 1px solid #294656;
+  border-radius: 4px;
+  background: transparent;
+  color: #83b9c5;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.alert-icon {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+}
+
+.alert-item.warning .alert-icon {
+  color: #e9ae3e;
+  background: #30250f;
+}
+
+.alert-item.danger .alert-icon {
+  color: #ef6868;
+  background: #321c22;
+}
+
+.alert-item.safe .alert-icon {
+  color: #1bc89d;
+  background: #0b302b;
+}
+
+.alert-text strong {
+  display: block;
+
+  color: #dce7ec;
+
+  font-size: 16px;
+}
+
+.alert-text p {
+  margin: 4px 0;
+
+  color: #718a9a;
+
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.alert-text small {
+  color: #506b7b;
+
+  font-size: 12px;
+}
+
+.view-alerts {
+  width: 100%;
+
+  margin-top: 14px;
+
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  border: 1px solid #4a606d;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #b7c8d1;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   BOTTOM
+========================= */
+
+.bottom-grid {
+  display: grid;
+
+  grid-template-columns: 1.25fr 1fr;
+
+  gap: 14px;
+}
+
+.recommendation-panel,
+.route-panel {
+  padding: 17px;
+}
+
+.recommendation-panel h2,
+.route-panel h2 {
+  margin: 9px 0 7px;
+
+  font-size: 27px;
+}
+
+.recommendation-panel > p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #71899a;
+
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.recommendation-details {
+  display: flex;
+  gap: 8px;
+
+  margin: 15px 0;
+}
+
+.recommendation-details div {
+  min-width: 105px;
+
+  padding: 8px;
+
+  border: 1px solid #203847;
+  border-radius: 7px;
+
+  background: #091e2d;
+}
+
+.recommendation-details span {
+  display: block;
+
+  color: #597386;
+
+  font-size: 12px;
+  letter-spacing: 0.8px;
+}
+
+.recommendation-details strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #1bc89d;
+
+  font-size: 16px;
+}
+
+
+/* ROUTE */
+
+.route-info {
+  display: flex;
+
+  gap: 35px;
+
+  margin: 18px 0;
+}
+
+.route-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.route-stat svg {
+  color: #20c5df;
+}
+
+.route-stat span {
+  display: block;
+
+  color: #597386;
+
+  font-size: 12px;
+}
+
+.route-stat strong {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 19px;
+}
+
+
+/* BUTTONS */
+
+.primary-dashboard-button,
+.secondary-dashboard-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  height: 34px;
+
+  padding: 0 12px;
+
+  border-radius: 7px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.primary-dashboard-button {
+  border: 1px solid #10b9d6;
+
+  background: #0bb1d0;
+
+  color: #00232c;
+}
+
+.secondary-dashboard-button {
+  border: 1px solid #586d79;
+
+  background: transparent;
+
+  color: #c1cfd6;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .situation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid,
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-links {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard-content {
+    padding: 20px 14px;
+  }
+
+  .data-health-row {
+    grid-template-columns: 1fr auto;
+    gap: 6px 8px;
+  }
+
+  .data-health-time {
+    grid-column: 1 / 2;
+    text-align: left;
+    margin-top: -4px;
+    margin-left: 15px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .situation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-details {
+    flex-direction: column;
+  }
+
+  .route-info {
+    gap: 20px;
+  }
+
+  .dashboard-map {
+  height: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.dashboard-map .leaflet-marine-map {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+.leaflet-marine-map {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  position: relative;
+}
+
+/* Custom zoom/location controls */
+.map-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.map-controls button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-controls button:hover {
+  background: #f1f5f9;
+}
+
+.control-divider {
+  height: 1px;
+  background: #e5e7eb;
+}
+/* ============================================================
+   DATA SOURCE HEALTH
+   Matches existing Samudra dashboard panels
+============================================================ */
+
+.data-health-panel {
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.data-health-panel .panel-header {
+  padding-bottom: 14px;
+}
+
+/* Status badge */
+.data-health-status {
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  line-height: 1;
+}
+
+.data-health-status.healthy {
+  border: 1px solid #245b4f;
+  background: #0b302b;
+  color: #1bc89d;
+}
+
+.data-health-status.degraded {
+  border: 1px solid #765d3b;
+  background: #171d22;
+  color: #d5ad70;
+}
+
+/* Source list */
+.data-health-list {
+  width: 100%;
+  border-top: 1px solid #203847;
+}
+
+/* Individual source row */
+.data-health-row {
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 17px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px 110px;
+  align-items: center;
+  gap: 12px;
+
+  box-sizing: border-box;
+  border-bottom: 1px solid #172f3e;
+}
+
+.data-health-row:last-child {
+  border-bottom: none;
+}
+
+/* Source name */
+.data-health-name {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.data-health-name > span:last-child {
+  display: block;
+  min-width: 0;
+
+  color: #dce7ec;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Status dot */
+.source-status-dot {
+  width: 7px;
+  height: 7px;
+  min-width: 7px;
+  display: inline-block;
+
+  border-radius: 50%;
+}
+
+/* Status colours */
+.source-status-dot.cached {
+  background: #20c5df;
+}
+
+.source-status-dot.live {
+  background: #1bc89d;
+}
+
+.source-status-dot.stale {
+  background: #e9aa38;
+}
+
+.source-status-dot.unavailable {
+  background: #ef6868;
+}
+
+/* CACHED / STALE / UNAVAILABLE */
+.source-status {
+  display: block;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  line-height: 1;
+}
+
+.source-status.cached {
+  color: #20c5df;
+}
+
+.source-status.live {
+  color: #1bc89d;
+}
+
+.source-status.stale {
+  color: #e9aa38;
+}
+
+.source-status.unavailable {
+  color: #ef6868;
+}
+
+/* Last updated */
+.data-health-time {
+  display: block;
+
+  color: #506b7b;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+
+  text-align: right;
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   DATA SOURCE HEALTH — RESPONSIVE
+============================================================ */
+
+@media (max-width: 650px) {
+  .data-health-row {
+    min-height: 46px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 10px;
+    padding: 7px 14px;
+  }
+
+  .source-status {
+    text-align: right;
+  }
+
+  .data-health-time {
+    grid-column: 1 / -1;
+    margin-left: 15px;
+    margin-top: -4px;
+
+    text-align: left;
+  }
+}
+}
