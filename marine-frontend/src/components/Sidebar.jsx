@@ -14,17 +14,25 @@ import {
   Menu,
   X,
   AlertTriangle,
+<<<<<<< HEAD
   LogOut,
 } from "lucide-react";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import { useLanguage } from "../state/useLanguage";
 import { useAuth } from "../state/useAuth";
+=======
+} from "lucide-react";
+
+import { NavLink } from "react-router-dom";
+import { useLanguage } from "../state/useLanguage";
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 import { languageOptions } from "../i18n/translations";
 import "./Sidebar.css";
 
 function Sidebar() {
   const { language, setLanguage, t } = useLanguage();
+<<<<<<< HEAD
   const { logout } = useAuth();
   const navigate = useNavigate();
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
@@ -35,6 +43,11 @@ function Sidebar() {
     navigate("/");
   };
 
+=======
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
   const activeLanguage =
     languageOptions.find((option) => option.code === language) ||
     languageOptions[0];
@@ -178,6 +191,7 @@ function Sidebar() {
             <User size={18} />
             <span className="sidebar-label">{t("nav.profile")}</span>
           </NavLink>
+<<<<<<< HEAD
 
           <button
             className="sidebar-item"
@@ -187,6 +201,8 @@ function Sidebar() {
             <LogOut size={18} />
             <span className="sidebar-label">Log out</span>
           </button>
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
         </div>
       </aside>
 
@@ -224,6 +240,7 @@ function Sidebar() {
               <User size={18} />
               <span>{t("nav.profile")}</span>
             </NavLink>
+<<<<<<< HEAD
 
             <button
               className="mobile-nav-item"
@@ -235,6 +252,8 @@ function Sidebar() {
               <LogOut size={18} />
               <span>Log out</span>
             </button>
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
           </nav>
         </>
       )}

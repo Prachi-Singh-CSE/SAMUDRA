@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppDataProvider } from "./state/AppDataProvider";
 import { LanguageProvider } from "./state/LanguageProvider";
 import { AuthProvider } from "./state/AuthProvider";
 import RequireAuth from "./components/RequireAuth";
+=======
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AppDataProvider } from "./state/AppDataProvider";
+import { LanguageProvider } from "./state/LanguageProvider";
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 import FloatingSOS from "./components/FloatingSOS";
 import ProactiveHazardBanner from "./components/ProactiveHazardBanner";
 
@@ -24,6 +30,7 @@ import AuthorityDashboard from "./pages/AuthorityDashboard";
 function App() {
   return (
     <LanguageProvider>
+<<<<<<< HEAD
       <AuthProvider>
         <AppDataProvider>
           <BrowserRouter>
@@ -55,6 +62,42 @@ function App() {
           </BrowserRouter>
         </AppDataProvider>
       </AuthProvider>
+=======
+      <AppDataProvider>
+        <BrowserRouter>
+          <Routes>
+
+          {/* Landing */}
+          <Route path="/" element={<Landing />} />
+          <Route
+  path="/login/fisherman"
+  element={<Navigate to="/dashboard" replace />}
+/>
+
+<Route
+  path="/login/authority"
+  element={<Navigate to="/authority" replace />}
+/>
+          {/* Main Pages */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/map" element={<Map />} />
+          <Route path="/fishing-zones" element={<FishingZones />} />
+          <Route path="/routes" element={<RoutesPage />} />
+          <Route path="/alerts" element={<Alerts />} />
+          <Route path="/ai-assistant" element={<AIAssistant />} />
+          <Route path="/ocean" element={<Ocean />} />
+          <Route path="/sos" element={<EmergencySOS />} />
+          <Route path="/intelligence" element={<Intelligence />} />
+          <Route path="/government" element={<Government />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/authority" element={<AuthorityDashboard />} />
+
+          </Routes>
+          <ProactiveHazardBanner />
+          <FloatingSOS />
+        </BrowserRouter>
+      </AppDataProvider>
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
     </LanguageProvider>
   );
 }

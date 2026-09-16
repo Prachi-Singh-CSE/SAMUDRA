@@ -22,6 +22,7 @@ export const gisApi = axios.create({
 export const agenticApi = axios.create({
   baseURL: AGENTIC_BASE,
   timeout: 60000,
+<<<<<<< HEAD
 });
 
 // ------------------------------------------------------------------
@@ -50,3 +51,6 @@ export async function apiDelete(path, config) {
   const response = await api.delete(path, config);
   return response.data;
 }
+=======
+});
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc

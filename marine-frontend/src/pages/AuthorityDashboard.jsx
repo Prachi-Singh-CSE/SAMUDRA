@@ -8,17 +8,26 @@ import {
   Clock,
   Activity,
   CheckCircle,
+<<<<<<< HEAD
   LogOut,
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 } from "lucide-react";
 
 import MarineLeafletMap from "../components/MarineLeafletMap";
 import { useAppData } from "../state/useAppData";
+<<<<<<< HEAD
 import { useAuth } from "../state/useAuth";
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 import "./AuthorityDashboard.css";
 
 function AuthorityDashboard() {
   const navigate = useNavigate();
+<<<<<<< HEAD
   const { logout } = useAuth();
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 
   const { state, acknowledgeAuthority } = useAppData();
 
@@ -92,6 +101,7 @@ function AuthorityDashboard() {
             </p>
           </div>
 
+<<<<<<< HEAD
           <div className="authority-header-actions">
             <div className="system-status">
               <span className="status-dot" />
@@ -111,6 +121,13 @@ function AuthorityDashboard() {
               <LogOut size={15} />
               Log out
             </button>
+=======
+          <div className="system-status">
+            <span className="status-dot" />
+
+            Demo systems · {dataSources.healthy}/
+            {dataSources.total} sources healthy
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
           </div>
         </section>
 

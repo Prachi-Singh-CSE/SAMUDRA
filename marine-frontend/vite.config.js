@@ -32,6 +32,7 @@ export default defineConfig({
         navigateFallback: '/index.html',
       },
 
+<<<<<<< HEAD
       // The dev-mode service worker (devOptions.enabled: true) precaches
       // '/index.html' and falls back to it for all navigations. During a
       // normal dev session (HMR, fast refresh, editing files) the cached
@@ -42,6 +43,10 @@ export default defineConfig({
       // preview` — it just no longer runs during `npm run dev`.
       devOptions: {
         enabled: false,
+=======
+      devOptions: {
+        enabled: true,
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
       },
     }),
   ],

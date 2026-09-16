@@ -2,7 +2,10 @@ import { AlertTriangle, TriangleAlert, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAppData } from "../state/useAppData";
 import { useLanguage } from "../state/useLanguage";
+<<<<<<< HEAD
 import { useAuth } from "../state/useAuth";
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 import "./ProactiveHazardBanner.css";
 
 const SEVERITY_ORDER = { High: 0, Medium: 1, Low: 2, CRITICAL: 0, WARNING: 1, CAUTION: 2 };
@@ -15,11 +18,14 @@ export default function ProactiveHazardBanner() {
   const navigate = useNavigate();
   const { state, markAlertRead, dismissAlert } = useAppData();
   const { t } = useLanguage();
+<<<<<<< HEAD
   const { isAuthenticated, role } = useAuth();
 
   // Fisherman-only: these toasts push into fisherman routes (map,
   // intelligence, etc.), so only show once a fisherman is logged in.
   if (!isAuthenticated || role !== "fisherman") return null;
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 
   // Don't stack toasts on top of the page whose entire job is showing them.
   if (pathname === "/alerts") return null;

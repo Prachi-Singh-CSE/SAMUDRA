@@ -370,12 +370,15 @@
     padding: 0 13px;
 
     border-radius: 8px;
+<<<<<<< HEAD
     border: none;
     background: transparent;
     width: 100%;
     text-align: left;
     font-family: inherit;
     cursor: pointer;
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 
     color: #b4c4cf;
     font-size: 14px;

@@ -1,7 +1,16 @@
 import {
   Bell,
   AlertTriangle,
+<<<<<<< HEAD
   Database,
+=======
+  ShieldAlert,
+  Waves,
+  Navigation,
+  Fish,
+  Database,
+  RotateCcw,
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
   Compass,
 } from "lucide-react";
 import { useState } from "react";
@@ -15,7 +24,10 @@ import "./Alerts.css";
 export default function Alerts() {
   const navigate = useNavigate();
   const { state, acknowledgeAlert, markAlertRead, dismissAlert, selectRoute, replayHazardPush } = useAppData();
+<<<<<<< HEAD
   const { t } = useLanguage();
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
   const { imbl, alertsMeta } = state;
   const [filter, setFilter] = useState("All");
   const [replayed, setReplayed] = useState(false);

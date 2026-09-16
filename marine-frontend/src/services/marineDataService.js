@@ -170,6 +170,7 @@ async function fetchLiveAPI(endpoint, lat, lon) {
   return result?.data ?? result;
 }
 
+<<<<<<< HEAD
 // Demo baseline values used to fill in `marine.ocean.wind` / `.waveHeight`
 // whenever a live source failed — risk/alert calculations (written against
 // the demo snapshot's shape) expect numbers here, never `undefined`.
@@ -224,6 +225,8 @@ function buildLiveDataSourceHealth(liveData, aisMode) {
   };
 }
 
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 // ============================================================
 // LIVE MARINE DATA
 // ============================================================
@@ -328,15 +331,26 @@ export async function getLiveMarineSnapshot(
   }
 
   // ==========================================================
+<<<<<<< HEAD
   // MARINE SNAPSHOT (risk / IMBL / alert calculations are all written
   // against this shape — see getMarineSnapshot() above)
   // ==========================================================
 
   const marine = {
+=======
+  // RETURN COMPLETE MARINE SNAPSHOT
+  // ==========================================================
+
+  return {
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
     mode: "live",
 
     userPosition: [lat, lon],
 
+<<<<<<< HEAD
+=======
+    // Existing UI data
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
     fishingZones,
 
     vessels: liveVessels,
@@ -353,6 +367,7 @@ export async function getLiveMarineSnapshot(
 
     recommendedRoute,
 
+<<<<<<< HEAD
     ocean: {
       wind: weather?.windSpeed ?? DEMO_WIND_KMH,
       waveHeight: ocean?.waveHeight ?? DEMO_WAVE_HEIGHT_M,
@@ -377,6 +392,9 @@ export async function getLiveMarineSnapshot(
     marine,
 
     // Live backend data (raw, for pages that want the unprocessed feed)
+=======
+    // Live backend data
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
     weather,
 
     ocean,
@@ -394,17 +412,28 @@ export async function getLiveMarineSnapshot(
     backendAlerts:
       liveData.alerts,
 
+<<<<<<< HEAD
     dataSources,
 
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
     // Useful summary for UI
     liveSummary: {
       temperature:
         weather?.temperature ??
+<<<<<<< HEAD
         ocean?.seaSurfaceTemperature ??
         null,
 
       wind:
         weather?.windSpeed ??
+=======
+        ocean?.temperature ??
+        null,
+
+      wind:
+        weather?.wind ??
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
         null,
 
       waveHeight:

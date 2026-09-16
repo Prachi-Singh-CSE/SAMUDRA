@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useNavigate, useParams, Navigate, NavLink } from "react-router-dom";
 import { Anchor, Shield, SlidersHorizontal, ArrowRight, ArrowLeft } from "lucide-react";
+<<<<<<< HEAD
 import { useAuth } from "../state/useAuth";
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 import "./Login.css";
 
 const ROLE_CONFIG = {
@@ -43,7 +46,10 @@ const ROLE_CONFIG = {
 function Login() {
   const { role } = useParams();
   const navigate = useNavigate();
+<<<<<<< HEAD
   const { login } = useAuth();
+=======
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
   const [id, setId] = useState("");
   const [secondary, setSecondary] = useState("");
 
@@ -54,11 +60,15 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     // Demo prototype — no real auth backend. We still require the ID
     // field to be filled in (see `required` on the input below) and
     // record a session so protected routes know the user came through
     // this screen, rather than just navigating straight into the portal.
     login(role, id.trim(), secondary.trim());
+=======
+    // Demo prototype — no real auth backend, just route into the portal.
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
     navigate(config.destination);
   };
 

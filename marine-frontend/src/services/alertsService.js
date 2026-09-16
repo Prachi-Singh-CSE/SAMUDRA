@@ -21,7 +21,11 @@ export function normalizeAlert(alert = {}) {
 }
 
 export async function fetchLiveAlerts(lat, lon) {
+<<<<<<< HEAD
   const json = await apiGet(`/alerts?lat=${lat}&lon=${lon}`);
+=======
+  const json = await apiGet(`/api/alerts?lat=${lat}&lon=${lon}`);
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
   const data = json.data || {};
 
   return {
@@ -31,7 +35,11 @@ export async function fetchLiveAlerts(lat, lon) {
 }
 
 export async function updateAlertState(id, action) {
+<<<<<<< HEAD
   return apiPatch(`/alerts/${encodeURIComponent(id)}/${action}`);
+=======
+  return apiPatch(`/api/alerts/${encodeURIComponent(id)}/${action}`);
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 }
 
 export function backendUnavailableAlert() {

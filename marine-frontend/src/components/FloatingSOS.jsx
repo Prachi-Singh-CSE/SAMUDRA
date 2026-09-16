@@ -1,12 +1,19 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { useLocation } from "react-router-dom";
 import { ShieldAlert } from "lucide-react";
 import { useAppData } from "../state/useAppData";
 import { useAuth } from "../state/useAuth";
+=======
+import { useLocation, useNavigate } from "react-router-dom";
+import { ShieldAlert } from "lucide-react";
+import { useAppData } from "../state/useAppData";
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
 import "./FloatingSOS.css";
 
 export default function FloatingSOS() {
   const { pathname } = useLocation();
+<<<<<<< HEAD
   const { state, recordDemoSOS, updateLocation } = useAppData();
   const { isAuthenticated, role } = useAuth();
   const [flow, setFlow] = useState("normal");
@@ -15,6 +22,13 @@ export default function FloatingSOS() {
   // Fisherman-only widget: keep it off the landing/login screens and off
   // the authority console (which has its own SOS handling).
   if (!isAuthenticated || role !== "fisherman") return null;
+=======
+  const navigate = useNavigate();
+  const { state, recordDemoSOS, updateLocation } = useAppData();
+  const [flow, setFlow] = useState("normal");
+  const [pressed, setPressed] = useState(false);
+
+>>>>>>> a9be354893841ff2595f723a7cdbaec5e7a1e3bc
   if (pathname === "/authority" || pathname === "/sos") return null;
 
   const acknowledged = state.sosEvents.at(-1)?.acknowledgementStatus === "ACKNOWLEDGED";
